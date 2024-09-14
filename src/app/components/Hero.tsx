@@ -9,10 +9,14 @@ import Link from "next/link";
 // Animation
 import { Fade } from "react-awesome-reveal";
 import { motion } from "framer-motion";
+import {useSectionInView} from "@/app/lib/useInView";
+import {useActiveSectionContext} from "@/app/containers/active-section";
 
 const Hero = () => {
+    const { ref} = useSectionInView("home", 0.5);
+    const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
     return (
-        <section id="home" className="mb-28 max-w-[75rem] text-center sm:mb-0">
+        <section ref={ref} id="home" className="mb-28 max-w-[75rem] text-center sm:mb-0">
             <div className="flex items-center justify-center">
                 <div className="relative">
                     <motion.div className="w-72 h-72 relative"
