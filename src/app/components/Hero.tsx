@@ -5,7 +5,6 @@ import { BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare} from "react-icons/fa";
 import { Mail } from 'lucide-react';
 import Link from "next/link";
-import { prefix } from "@/app/utils/prefix";
 
 // Animation
 import { Fade } from "react-awesome-reveal";
@@ -27,7 +26,7 @@ const Hero = () => {
                     transition={{ type: "spring", stiffness: 125, damping: 10, duration: 0.2 }}
                     >
                         <Image
-                            src={`${prefix}/profilbillede.png`}
+                            src="/profilbillede.png"
                             layout="fill"
                             objectFit="cover"
                             objectPosition="top"
