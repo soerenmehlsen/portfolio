@@ -26,7 +26,7 @@ const Hero = () => {
                     transition={{ type: "spring", stiffness: 125, damping: 10, duration: 0.2 }}
                     >
                         <Image
-                            src="/portfolio/profilbillede.png"
+                            src="/profilbillede.png"
                             layout="fill"
                             objectFit="cover"
                             objectPosition="top"
