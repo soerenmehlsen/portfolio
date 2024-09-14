@@ -14,6 +14,7 @@ import {useActiveSectionContext} from "@/app/containers/active-section";
 
 const Hero = () => {
     const { ref} = useSectionInView("home", 0.5);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
     return (
         <section ref={ref} id="home" className="mb-28 max-w-[75rem] text-center sm:mb-0">

@@ -2,7 +2,6 @@
 import { SectionName} from "@/app/lib/types";
 import React from "react";
 import { useState, createContext, useContext } from "react";
-import ActiveSection from "@/app/containers/active-section";
 
 type ActiveSectionContextProviderProps = {
     children: React.ReactNode;
