@@ -41,7 +41,7 @@ const Hero = () => {
 
             <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
                 <h1 className="mb-10 mt-4 text-2xl sm:text-4xl">
-                    Hi, I'm <span className="text-[#f59e0b]">Soren</span>
+                    Hi, I&apos;m <span className="text-[#f59e0b]">Soren</span>
                     <span className="waving-hand">👋</span>
                     <p className="text-[14px]">
                         Health Tech engineer, who likes to build things on the web.
