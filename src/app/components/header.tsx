@@ -43,7 +43,7 @@ export default function Header({ links }: HeaderProps) {
                             {link.nameEng}
                             {link.hash === activeSection && (
                             <motion.span
-                                transition={{ type:"spring", stiffness: 500, damping: 30 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                 layoutId="activeSection"
                                 className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
                                 >

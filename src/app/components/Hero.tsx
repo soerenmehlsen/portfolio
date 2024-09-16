@@ -13,7 +13,7 @@ import {useSectionInView} from "@/app/lib/useInView";
 import {useActiveSectionContext} from "@/app/containers/active-section";
 
 const Hero = () => {
-    const { ref} = useSectionInView("home", 0.5);
+    const { ref} = useSectionInView("#home", 0.5);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
     return (
