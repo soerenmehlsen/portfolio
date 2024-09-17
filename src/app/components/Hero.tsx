@@ -55,7 +55,7 @@ const Hero = () => {
             transition={{ delay: 0.1 }}
             >
                 <Link
-                    href="#"
+                    href={"#contact"}
                     className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
                 >
                     <span className="relative flex h-3 w-3">
@@ -67,7 +67,7 @@ const Hero = () => {
 
                 <a
                     className="bg-gray-900 p-4 text-white flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-                    href="#"
+                    href="https://www.linkedin.com/in/soerenmehlsen"
                     target="_blank"
                 >
                     <BsLinkedin/>
@@ -75,7 +75,7 @@ const Hero = () => {
 
                 <a
                     className="bg-gray-900 p-4 text-white flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-                    href="#"
+                    href="https://github.com/soerenmehlsen"
                     target="_blank"
                 >
                     <FaGithubSquare/>

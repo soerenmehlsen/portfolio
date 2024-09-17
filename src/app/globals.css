@@ -45,3 +45,8 @@
         transform: rotate(0deg);
     }
 }
+
+html, body {
+    --line-color: #e5e7eb;
+    overflow-x: hidden;
+}

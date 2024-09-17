@@ -7,10 +7,10 @@ type ProvidersProps = {
 
 export default function Providers({ children }: ProvidersProps) {
     return (
+        <ThemeContextProvider>
         <ActiveSectionContextProvider>
-            <ThemeContextProvider>
             {children}
-            </ThemeContextProvider>
         </ActiveSectionContextProvider>
+        </ThemeContextProvider>
     );
 }
