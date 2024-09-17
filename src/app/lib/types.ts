@@ -1,4 +1,5 @@
 import { links } from './data';
+import React from "react";
 
 export type SectionName = (typeof links)[number]['hash'];
 
