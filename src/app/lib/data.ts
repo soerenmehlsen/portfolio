@@ -2,6 +2,11 @@ import {Link, ProjectInfo} from "@/app/lib/types";
 import { CgWorkAlt } from "react-icons/cg";
 import { LuGraduationCap } from "react-icons/lu";
 import React from "react";
+import { FaReact, FaCss3Alt, FaHtml5, FaJs, FaGitAlt, FaDocker, FaNodeJs, FaGithub } from "react-icons/fa";
+import { SiTypescript, SiMongodb, SiPostman, SiAzuredevops, SiKotlin, SiDotnet, SiMicrosoftsqlserver } from "react-icons/si";
+import { GoCopilot } from "react-icons/go";
+import { AiOutlineOpenAI } from "react-icons/ai";
+
 
 export const links: Link[] = [
     {
@@ -53,22 +58,42 @@ export const skillsData = [
     {
         title: "Frontend",
         skills: [
-            "React",
-            "Next.js",
-            "TailwindCSS",
-            "Framer Motion",
-            "TypeScript",
-            "JavaScript",
-            "WPF",
+            { name: "React.js", icon: FaReact },
+            { name: "CSS", icon: FaCss3Alt },
+            { name: "HTML", icon: FaHtml5 },
+            { name: "TypeScript", icon: SiTypescript },
+            { name: "JavaScript", icon: FaJs },
+            { name: "WPF", icon: SiDotnet },
+            { name: "Kotlin", icon: SiKotlin }
         ],
     },
     {
         title: "Backend",
-        skills: ["C#", ".NET Core", "MSSQL", "MongoDB", "REST API"],
+        skills: [
+            { name: "C#", icon: SiDotnet },
+            { name: ".NET Core", icon: SiDotnet },
+            { name: "MSSQL", icon: SiMicrosoftsqlserver },
+            { name: "MongoDB", icon: SiMongodb },
+            { name: "REST API", icon: FaNodeJs },
+            { name: "EF Core", icon: SiDotnet }
+        ],
     },
     {
-        title: "Others",
-        skills: ["Git", "GitHub", "Copilot", "Docker", "Azure"],
+        title: "DevOps",
+        skills: [
+            { name: "Git", icon: FaGitAlt },
+            { name: "GitHub", icon: FaGithub },
+            { name: "Postman", icon: SiPostman },
+            { name: "Docker", icon: FaDocker },
+            { name: "Azure", icon: SiAzuredevops }
+        ],
+    },
+    {
+        title: "AI",
+        skills: [
+            { name: "Copilot", icon: GoCopilot },
+            { name: "ChatGPT", icon: AiOutlineOpenAI }
+        ],
     },
 ];
 

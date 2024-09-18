@@ -16,6 +16,9 @@ const config: Config = {
       fontFamily: {
         Sora: ["var(--font-sora)", "sans-serif"],
       },
+      zIndex: {
+        'behind': '-1',
+      },
     },
   },
   plugins: [],

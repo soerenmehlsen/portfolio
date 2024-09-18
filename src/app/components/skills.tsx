@@ -46,8 +46,13 @@ export default function Skills() {
                                             whileInView="animate"
                                             viewport={{once: true}}
                                             custom={index}
-                                            key={index} className="bg-white border-black rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80 mt-2"
-                                        >{tech}</motion.li>
+                                            key={index}
+                                            className="bg-white border-black rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80 mt-2"
+                                        ><span className="flex items-center gap-2">
+                                            <tech.icon className="text-xl"/>
+                                            <span>{tech.name}</span>
+                                        </span>
+                                        </motion.li>
                                     ))
                                 }
                             </ul>
