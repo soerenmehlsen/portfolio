@@ -61,13 +61,12 @@ export default function About() {
                     <div>
                         <Fade direction="right" delay={600} cascade damping={1e-1} triggerOnce={true}>
                     <Image
-                        src="/gamingRoom.png"
+                        src="/gaming-room.png"
                         alt="Gaming room"
                         width="600"
                         height="600"
-                        quality="100"
-                        priority={true}
-                        className="rounded-full mt-8 object-cover"
+                        loading="lazy"
+                        className="mt-8 mx-auto lg:mx-8 object-cover"
                     />
                         </Fade>
                 </div>

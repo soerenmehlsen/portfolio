@@ -11,7 +11,7 @@ import { VerticalElement } from "@/app/components/vertical-element";
 export default function Experience() {
     const { ref } = useSectionInView("#experience", 0.1);
     return (
-        <section id="experience" ref={ref} className="mb-28 scroll-mt-28 sm:mb-40">
+        <section id="experience" ref={ref} className="mb-28 scroll-mt-28 sm:mb-40 mt-20">
             <SectionHeading>My experience</SectionHeading>
             <VerticalTimeline lineColor="" className="dark:behind-elements">
                 {experiencesData.map((item, index) => {

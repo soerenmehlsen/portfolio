@@ -10,12 +10,10 @@ import Link from "next/link";
 import { Fade } from "react-awesome-reveal";
 import { motion } from "framer-motion";
 import {useSectionInView} from "@/app/lib/useInView";
-import {useActiveSectionContext} from "@/app/containers/active-section";
 
 const Hero = () => {
     const { ref} = useSectionInView("#home", 0.5);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
     return (
         <section ref={ref} id="home" className="mb-28 max-w-[75rem] text-center sm:mb-0">
             <div className="flex items-center justify-center">
@@ -27,11 +25,10 @@ const Hero = () => {
                     >
                         <Image
                             src="/profilbillede.png"
-                            layout="fill"
+                            fill
                             objectFit="cover"
                             objectPosition="top"
                             alt="hero"
-                            quality="100"
                             priority={true}
                             className="rounded-full shadow-xl"
                         />

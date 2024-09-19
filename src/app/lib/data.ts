@@ -33,12 +33,12 @@ export const links: Link[] = [
 
 export const projectsData: ProjectInfo[] = [
     {
-        title: "Project 1",
-        description: "Description 1",
-        techStack: ["React", "TypeScript", "TailwindCSS"],
-        imageUrl: "/upcoming-project.png",
-        github: "https://github.com",
-        live: "https://live.com",
+        title: "DeepDR",
+        description: "DeepDR is a program trained with deep learning model to detect diabetic retinopathy in retinal fundus images.",
+        techStack: ["Matlab"],
+        imageUrl: "/DeepDR.png",
+        github: "https://github.com/soerenmehlsen/DeepDR",
+        live: "",
     },
     {
         title: "Project 2",
@@ -46,7 +46,7 @@ export const projectsData: ProjectInfo[] = [
         techStack: ["React", "TypeScript", "TailwindCSS"],
         imageUrl: "/upcoming-project.png",
         github: "https://github.com",
-        live: "https://live.com",
+        live: "",
     },
 ];
 
