@@ -7,7 +7,7 @@ import ThreeDProjectCard from "@/app/components/3dProject-card";
 export default function Projects() {
     const { ref } = useSectionInView("#projects", 0.1)
     return (
-        <section id="projects" ref={ref} className="scroll-mt-28 mb-28 sm:mt-80 ">
+        <section id="projects" ref={ref} className="scroll-mt-28 mb-28">
             <SectionHeading>
                 My Projects
             </SectionHeading>

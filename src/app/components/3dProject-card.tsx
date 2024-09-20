@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { CardBody, CardContainer, CardItem } from "@/app/components/ui/3d-card";
 import Link from "next/link";
 import { ProjectInfo } from "@/app/lib/types";
@@ -9,9 +9,19 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 type ProjectCardProps = ProjectInfo;
 
+const ImageModal: React.FC<{ imageUrl: string; onClose: () => void }> = ({ imageUrl, onClose }) => (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+        <div className="relative">
+            <button onClick={onClose} className="absolute top-2 right-2 text-black text-2xl">×</button>
+            <Image src={imageUrl} height="1000" width="1000" className="object-contain" alt="Full screen image" />
+        </div>
+    </div>
+);
+
 export default function ThreeDProjectCard({
                                               title, description, techStack, imageUrl, github, live
                                           }: ProjectCardProps) {
+    const [isModalOpen, setModalOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -21,6 +31,7 @@ export default function ThreeDProjectCard({
     const opacityProgress = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
     return (
+        <>
         <motion.div
             ref={ref}
             style={{ scale: scaleProgress, opacity: opacityProgress }}
@@ -50,6 +61,8 @@ export default function ThreeDProjectCard({
                             width="1000"
                             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
                             alt={title}
+                            onClick={() => setModalOpen(true)}
+
                         />
                     </CardItem>
                     <CardItem translateZ="60">
@@ -87,5 +100,6 @@ export default function ThreeDProjectCard({
                 </CardBody>
             </CardContainer>
         </motion.div>
+            {isModalOpen && <ImageModal imageUrl={imageUrl || '/upcoming-project.png'} onClose={() => setModalOpen(false)} />}</>
     );
 }
