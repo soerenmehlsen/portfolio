@@ -59,7 +59,7 @@ const Hero = () => {
                         <span className="btn-ping"/>
                         <span className="btn-ping_dot"/>
                     </span>
-                    Let&apos;s Connect <Mail color={"#9ca3af"}/>
+                    Connect <Mail color={"#9ca3af"}/>
                 </Link>
 
                 <a
