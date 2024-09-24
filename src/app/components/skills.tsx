@@ -4,6 +4,7 @@ import {skillsData} from "@/app/lib/data";
 import { useSectionInView} from "@/app/lib/useInView";
 
 import { motion } from "framer-motion";
+import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 
 const fadeInAnimationVariants = {
     initial: {
@@ -50,7 +51,9 @@ export default function Skills() {
                                             className="bg-white border-black rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80 mt-2"
                                         ><span className="flex items-center gap-2">
                                             <tech.icon className="text-xl"/>
-                                            <span>{tech.name}</span>
+                                            <AnimatedShinyText className="inline-flex items-center justify-center px-4 transition ease-out hover:text-black hover:duration-300 hover:dark:text-white">
+                                                {tech.name}
+                                            </AnimatedShinyText>
                                         </span>
                                         </motion.li>
                                     ))
