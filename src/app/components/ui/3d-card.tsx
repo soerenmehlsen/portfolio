@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/app/lib/utils";
+import {cn} from "@/app/lib/utils";
 import React, {
     createContext,
     useState,
@@ -27,7 +27,7 @@ export const CardContainer = ({
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!containerRef.current) return;
-        const { left, top, width, height } =
+        const {left, top, width, height} =
             containerRef.current.getBoundingClientRect();
         const x = (e.clientX - left - width / 2) / 25;
         const y = (e.clientY - top - height / 2) / 25;
@@ -127,7 +127,7 @@ export const CardItem = ({
         } else {
             ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
         }
-    },[isMouseEntered, translateX, translateY, translateZ, rotateX, rotateY, rotateZ]);
+    }, [isMouseEntered, translateX, translateY, translateZ, rotateX, rotateY, rotateZ]);
 
 
     useEffect(() => {

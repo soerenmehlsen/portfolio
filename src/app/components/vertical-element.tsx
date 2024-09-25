@@ -1,9 +1,9 @@
 "use client";
 
-import { useInView } from "react-intersection-observer";
-import { VerticalTimelineElement } from "react-vertical-timeline-component";
-import { useTheme } from "@/app/containers/theme-context";
-import { type VerticalElementType } from "@/app/lib/types";
+import {useInView} from "react-intersection-observer";
+import {VerticalTimelineElement} from "react-vertical-timeline-component";
+import {useTheme} from "@/app/containers/theme-context";
+import {type VerticalElementType} from "@/app/lib/types";
 
 const VerticalElement = ({
                              title,
@@ -12,8 +12,8 @@ const VerticalElement = ({
                              date,
                              icon,
                          }: VerticalElementType) => {
-    const { theme } = useTheme();
-    const { ref, inView } = useInView({ threshold: 0.25, triggerOnce: true });
+    const {theme} = useTheme();
+    const {ref, inView} = useInView({threshold: 0.25, triggerOnce: true});
 
     return (
         <VerticalTimelineElement

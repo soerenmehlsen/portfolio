@@ -7,15 +7,15 @@ import Experience from "@/app/components/experience";
 import SectionDivider from "@/app/components/section-divider";
 
 export default function Home() {
-  return (
-    <main className="flex flex-col items-center pt-20 md:pt-28 px-4">
-      <Hero/>
-        <SectionDivider/>
-        <About/>
-        <Projects/>
-        <Skills/>
-        <Experience/>
-    </main>
-  );
+    return (
+        <main className="flex flex-col items-center pt-20 md:pt-28 px-4">
+            <Hero/>
+            <SectionDivider/>
+            <About/>
+            <Projects/>
+            <Skills/>
+            <Experience/>
+        </main>
+    );
 }
 

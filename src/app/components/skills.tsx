@@ -1,10 +1,9 @@
 "use client";
 import SectionHeading from "@/app/components/section-heading";
 import {skillsData} from "@/app/lib/data";
-import { useSectionInView} from "@/app/lib/useInView";
+import {useSectionInView} from "@/app/lib/useInView";
 
-import { motion } from "framer-motion";
-import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
+import {motion} from "framer-motion";
 
 const fadeInAnimationVariants = {
     initial: {
@@ -21,7 +20,7 @@ const fadeInAnimationVariants = {
 };
 
 export default function Skills() {
-    const { ref } = useSectionInView("#skills", 0.1);
+    const {ref} = useSectionInView("#skills", 0.1);
     return (
         <section id="skills" ref={ref} className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-72">
             <SectionHeading>
@@ -49,11 +48,10 @@ export default function Skills() {
                                             custom={index}
                                             key={index}
                                             className="bg-white border-black rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80 mt-2"
-                                        ><span className="flex items-center gap-2">
+                                        ><span
+                                            className="flex items-center gap-2 text-neutral-600/90 dark:text-neutral-400/90 hover:text-black hover:duration-300 hover:dark:text-white">
                                             <tech.icon className="text-xl"/>
-                                            <AnimatedShinyText className="inline-flex items-center justify-center px-4 transition ease-out hover:text-black hover:duration-300 hover:dark:text-white">
-                                                {tech.name}
-                                            </AnimatedShinyText>
+                                            {tech.name}
                                         </span>
                                         </motion.li>
                                     ))

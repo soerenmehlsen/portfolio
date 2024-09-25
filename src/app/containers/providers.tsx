@@ -5,12 +5,12 @@ type ProvidersProps = {
     children: React.ReactNode;
 };
 
-export default function Providers({ children }: ProvidersProps) {
+export default function Providers({children}: ProvidersProps) {
     return (
         <ThemeContextProvider>
-        <ActiveSectionContextProvider>
-            {children}
-        </ActiveSectionContextProvider>
+            <ActiveSectionContextProvider>
+                {children}
+            </ActiveSectionContextProvider>
         </ThemeContextProvider>
     );
 }

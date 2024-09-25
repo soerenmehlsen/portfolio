@@ -1,28 +1,28 @@
 "use client";
 import React from 'react'
 import Image from 'next/image'
-import { BsLinkedin } from "react-icons/bs";
-import { FaGithubSquare} from "react-icons/fa";
-import { Mail } from 'lucide-react';
+import {BsLinkedin} from "react-icons/bs";
+import {FaGithubSquare} from "react-icons/fa";
+import {Mail} from 'lucide-react';
 import Link from "next/link";
 
 // Animation
-import { Fade } from "react-awesome-reveal";
-import { motion } from "framer-motion";
+import {Fade} from "react-awesome-reveal";
+import {motion} from "framer-motion";
 import {useSectionInView} from "@/app/lib/useInView";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 
 const Hero = () => {
-    const { ref} = useSectionInView("#home", 0.5);
+    const {ref} = useSectionInView("#home", 0.5);
 
     return (
         <section ref={ref} id="home" className="mb-28 max-w-[75rem] text-center sm:mb-0">
             <div className="flex items-center justify-center">
                 <div className="relative">
                     <motion.div className="w-72 h-72 relative"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ type: "spring", stiffness: 125, damping: 10, duration: 0.2 }}
+                                initial={{opacity: 0, scale: 0}}
+                                animate={{opacity: 1, scale: 1}}
+                                transition={{type: "spring", stiffness: 125, damping: 10, duration: 0.2}}
                     >
                         <Image
                             src="/profilbillede.png"
@@ -41,7 +41,8 @@ const Hero = () => {
                 <h1 className="mb-10 mt-4 text-2xl sm:text-4xl">
                     Hi, I&apos;m
                     <AnimatedGradientText>
-                        <span className="inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">
+                        <span
+                            className="inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">
                             Soren
                         </span>
                     </AnimatedGradientText>
@@ -53,9 +54,9 @@ const Hero = () => {
             </Fade>
 
             <motion.div className="flex sm:flex-row item-center justify-center gap-4 px-4 text-lg font-medium"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+                        initial={{opacity: 0, y: 100}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{delay: 0.1}}
             >
                 <Link
                     href="mailto:soeren48@hotmail.com"

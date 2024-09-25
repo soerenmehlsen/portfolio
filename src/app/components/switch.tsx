@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {motion, AnimatePresence} from "framer-motion";
 
 interface SwitchProps {
     activeButton: React.ReactNode;
@@ -9,16 +9,16 @@ interface SwitchProps {
 }
 
 export default function Switch({
-    activeButton,
-        hiddenButton,
-        setActiveButton,
-}: SwitchProps) {
+                                   activeButton,
+                                   hiddenButton,
+                                   setActiveButton,
+                               }: SwitchProps) {
     const [isHovered, setIsHovered] = useState(false);
 
     const switchVariants = {
-        hover : { scale: 1.2 },
-        hidden: { opacity: 0, y: 50, scale: 0.5 },
-        visible: { opacity: 0.7, y: 0, scale: 1 },
+        hover: {scale: 1.2},
+        hidden: {opacity: 0, y: 50, scale: 0.5},
+        visible: {opacity: 0.7, y: 0, scale: 1},
     }
 
     return (

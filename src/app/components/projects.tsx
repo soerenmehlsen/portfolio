@@ -1,11 +1,11 @@
 "use client";
 import SectionHeading from "@/app/components/section-heading";
-import { projectsData } from "@/app/lib/data";
-import { useSectionInView } from "@/app/lib/useInView";
+import {projectsData} from "@/app/lib/data";
+import {useSectionInView} from "@/app/lib/useInView";
 import ThreeDProjectCard from "@/app/components/3dProject-card";
 
 export default function Projects() {
-    const { ref } = useSectionInView("#projects", 0.1)
+    const {ref} = useSectionInView("#projects", 0.1)
     return (
         <section id="projects" ref={ref} className="scroll-mt-28 mb-28">
             <SectionHeading>

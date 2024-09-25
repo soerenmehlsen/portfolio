@@ -7,17 +7,17 @@ import {Fade} from 'react-awesome-reveal';
 import Image from 'next/image';
 
 export default function About() {
-    const { ref } = useSectionInView('#about')
+    const {ref} = useSectionInView('#about')
 
     return (
         <motion.section
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.175 }}
+            initial={{opacity: 0, y: 100}}
+            animate={{opacity: 1, y: 0}}
+            transition={{delay: 0.175}}
             id="about"
             ref={ref}
             className="max-w-[45rem] text-center mt-32 leading-8 mb-28 sm:mb-40 scroll-mt-28"
-            >
+        >
             <div className="container mx-auto">
                 <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
                     <SectionHeading>
@@ -30,7 +30,7 @@ export default function About() {
                         <div className="text-lg mt-12 xl:mt-3">
                             <div className="flex justify-start flex-col">
                                 <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
-                                <h3 className="font-bold mt-6">My passion</h3>
+                                    <h3 className="font-bold mt-6">My passion</h3>
                                 </Fade>
                                 <Fade direction="up" delay={600} cascade damping={1e-1} triggerOnce={true}>
                                     <p className="mb-3">
@@ -42,9 +42,10 @@ export default function About() {
                                         well as{" "}
                                         <span className="font-medium">back-end systems</span> using .NET Core and Web
                                         APIs.{" "}
-                                       My favorite part of developing software is
+                                        My favorite part of developing software is
                                         finding solutions to complex challenges.
-                                        The thrill I get of solving a problem is what drives me. My core stack includes{" "}
+                                        The thrill I get of solving a problem is what drives me. My core stack
+                                        includes{" "}
                                         <span className="font-medium">C# in .NET, React.JS, MongoDB, and MSSQL</span>,
                                         and I am continually trying to learn new skills. I am currently looking for
                                         a job as a{" "}
@@ -58,7 +59,8 @@ export default function About() {
 
                                 <Fade direction="up" delay={1000} cascade damping={1e-1} triggerOnce={true}>
                                     <p>
-                                        <span className="italic">When I&apos;m not coding</span>, I enjoy staying active by
+                                        <span className="italic">When I&apos;m not coding</span>, I enjoy staying active
+                                        by
                                         playing padel, working out, and spending time with family and
                                         friends. I also have a strong interest for technology and love keeping up with
                                         the latest advancements in the field.
@@ -75,12 +77,12 @@ export default function About() {
                                 src="/gaming-room.png"
                                 alt="Gaming room"
                                 width="600"
-                        height="600"
-                        loading="lazy"
-                        className="mt-8 mx-auto lg:mx-8 object-cover"
-                    />
+                                height="600"
+                                loading="lazy"
+                                className="mt-8 mx-auto lg:mx-8 object-cover"
+                            />
                         </Fade>
-                </div>
+                    </div>
                 </div>
             </div>
         </motion.section>
