@@ -82,6 +82,7 @@ export default function ThreeDProjectCard({
                 width="1000"
                 className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
                 alt={title}
+                loading="lazy"
                 onClick={() => setModalOpen(true)}
               />
             </CardItem>
