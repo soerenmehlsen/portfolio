@@ -84,6 +84,7 @@ export default function ThreeDProjectCard({
                 alt={title}
                 loading="lazy"
                 onClick={() => setModalOpen(true)}
+                aria-label={`Open ${title} project details`}
               />
             </CardItem>
             <CardItem translateZ="60">

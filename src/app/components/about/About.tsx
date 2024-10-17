@@ -16,7 +16,7 @@ export default function About() {
       transition={{ delay: 0.175 }}
       id="about"
       ref={ref}
-      className="max-w-[45rem] text-center mt-32 leading-8 mb-28 sm:mb-40 scroll-mt-28"
+      className="max-w-[45rem] text-center mb-28 sm:mb-40 scroll-mt-28"
     >
       <div className="container mx-auto">
         <Fade
