@@ -59,6 +59,15 @@ export const projectsData: ProjectInfo[] = [
     live: "https://github.com/soerenmehlsen/DeepDR",
   },
   {
+    title: "Recreation of Facebook start page",
+    description: "Designed a prototype of Facebook's start page using Play 2.0",
+    techStack: ["UI/UX", "Play 2.0"],
+    imageUrl: "/FacebookPage.png",
+    imageGifUrl: "/FacebookPage.png",
+    github: "",
+    live: "https://appclip.apple.com/id?p=com.createwithplay.playgen3.Clip&pid=3d744091ab4680YaGwx&e=0",
+  },
+  {
     title: "Upcoming Project",
     description: "Stay tuned for my upcoming project!",
     techStack: ["React", "TypeScript", "TailwindCSS"],
