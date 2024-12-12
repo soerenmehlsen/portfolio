@@ -49,6 +49,15 @@ export const links: Link[] = [
 
 export const projectsData: ProjectInfo[] = [
   {
+    title: "What's in my food",
+    description: "Helps users to find out how processed their food is and understand the ingredients with the help of AI.",
+    techStack: ["Next.Js", "TypeScript", "TailwindCSS", "Supabase"],
+    imageUrl: "/WhatsInMyFood.png",
+    imageGifUrl: "/WhatsInMyFood.png",
+    github: "https://github.com/soerenmehlsen/whatsInMyFood",
+    live: "https://whatsinmyfood-sorens-projects-416137d4.vercel.app/",
+  },
+  {
     title: "DeepDR",
     description:
       "DeepDR is a program trained with deep learning model to detect diabetic retinopathy in retinal fundus images.",
@@ -66,14 +75,6 @@ export const projectsData: ProjectInfo[] = [
     imageGifUrl: "/FacebookPage.png",
     github: "",
     live: "https://appclip.apple.com/id?p=com.createwithplay.playgen3.Clip&pid=3d744091ab4680YaGwx&e=0",
-  },
-  {
-    title: "Upcoming Project",
-    description: "Stay tuned for my upcoming project!",
-    techStack: ["React", "TypeScript", "TailwindCSS"],
-    imageUrl: "/upcoming-project.png",
-    github: "https://github.com",
-    live: "https://github.com/soerenmehlsen/DeepDR",
   },
 ];
 
