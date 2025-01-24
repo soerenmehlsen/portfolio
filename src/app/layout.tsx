@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth">
       <PostHogProvider>
         <body
-          className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 antialiasing`}
+          className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 antialiasing overscroll-x-auto`}
         >
           {/* Gradient Background Color */}
           <div className="bg-[#fbe2e3] absolute top-[-6rem] flex-1 z-[-10] right-[-11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>

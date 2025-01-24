@@ -1,5 +1,5 @@
 import { links } from "./data";
-import { IconType } from "react-icons";
+import React from "react";
 
 export type SectionName = (typeof links)[number]["hash"];
 
@@ -23,5 +23,5 @@ export type VerticalElementType = {
   description: string;
   location: string;
   date: string;
-  icon: IconType;
+  icon: React.ReactElement;
 };
