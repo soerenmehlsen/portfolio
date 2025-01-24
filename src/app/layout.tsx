@@ -7,7 +7,7 @@ import ThemeSwitch from "@/app/components/layout/ThemeSwitch";
 import Footer from "@/app/components/layout/Footer";
 import React from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { CSPostHogProvider } from "@/app/providers";
+import { PostHogProvider } from "@/app/providers";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <CSPostHogProvider>
+      <PostHogProvider>
         <body
           className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 antialiasing`}
         >
@@ -43,7 +43,7 @@ export default function RootLayout({
             <Footer />
           </Providers>
         </body>
-      </CSPostHogProvider>
+      </PostHogProvider>
     </html>
   );
 }

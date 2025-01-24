@@ -1,20 +1,16 @@
 "use client";
+
 import posthog from "posthog-js";
-import { PostHogProvider } from "posthog-js/react";
+import { PostHogProvider as PHProvider } from "posthog-js/react";
+import { useEffect } from "react";
 
-const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY || "";
-const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST || "";
+export function PostHogProvider({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+      capture_pageview: false, // Disable automatic pageview capture, as we capture manually
+    });
+  }, []);
 
-if (typeof window !== "undefined") {
-  posthog.init(posthogKey, {
-    api_host: posthogHost,
-    person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-  });
-}
-
-interface CSPostHogProviderProps {
-  children: React.ReactNode;
-}
-export function CSPostHogProvider({ children }: CSPostHogProviderProps) {
-  return <PostHogProvider client={posthog}>{children}</PostHogProvider>;
+  return <PHProvider client={posthog}>{children}</PHProvider>;
 }

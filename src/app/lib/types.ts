@@ -23,5 +23,5 @@ export type VerticalElementType = {
   description: string;
   location: string;
   date: string;
-  icon: React.ReactElement;
+  icon: React.ReactElement<any>;
 };

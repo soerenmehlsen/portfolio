@@ -16,13 +16,13 @@ import {
   SiTypescript,
   SiMongodb,
   SiPostman,
-  SiAzuredevops,
   SiKotlin,
   SiDotnet,
-  SiMicrosoftsqlserver,
 } from "react-icons/si";
 import { GoCopilot } from "react-icons/go";
 import { AiOutlineOpenAI } from "react-icons/ai";
+import { VscAzure } from "react-icons/vsc";
+import { DiMsqlServer } from "react-icons/di";
 
 export const links: Link[] = [
   {
@@ -97,7 +97,7 @@ export const skillsData = [
     skills: [
       { name: "C#", icon: SiDotnet },
       { name: ".NET Core", icon: SiDotnet },
-      { name: "MSSQL", icon: SiMicrosoftsqlserver },
+      { name: "MSSQL", icon: DiMsqlServer },
       { name: "MongoDB", icon: SiMongodb },
       { name: "REST API", icon: FaNodeJs },
       { name: "EF Core", icon: SiDotnet },
@@ -110,7 +110,7 @@ export const skillsData = [
       { name: "GitHub", icon: FaGithub },
       { name: "Postman", icon: SiPostman },
       { name: "Docker", icon: FaDocker },
-      { name: "Azure", icon: SiAzuredevops },
+      { name: "Azure", icon: VscAzure },
     ],
   },
   {
