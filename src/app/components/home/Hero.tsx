@@ -5,6 +5,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
 import { Mail } from "lucide-react";
 import Link from "next/link";
+import { analyticsEvents } from "@/app/lib/analytics";
 
 // Animation
 import { Fade } from "react-awesome-reveal";
@@ -77,6 +78,12 @@ const Hero = () => {
         <Link
           href="mailto:soeren48@hotmail.com"
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
+          onClick={() =>
+            analyticsEvents.trackContactClick({
+              type: "email",
+              section: "hero",
+            })
+          }
         >
           <span className="relative flex h-3 w-3">
             <span className="btn-ping" />
@@ -89,6 +96,12 @@ const Hero = () => {
           className="bg-gray-900 p-4 text-white flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
           href="https://www.linkedin.com/in/soerenmehlsen"
           target="_blank"
+          onClick={() =>
+            analyticsEvents.trackSocialClick({
+              platform: "linkedin",
+              section: "hero",
+            })
+          }
         >
           <BsLinkedin />
         </a>
@@ -97,6 +110,12 @@ const Hero = () => {
           className="bg-gray-900 p-4 text-white flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
           href="https://github.com/soerenmehlsen"
           target="_blank"
+          onClick={() =>
+            analyticsEvents.trackSocialClick({
+              platform: "github",
+              section: "hero",
+            })
+          }
         >
           <FaGithubSquare />
         </a>

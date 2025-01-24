@@ -6,6 +6,7 @@ import { CardBody, CardContainer, CardItem } from "@/app/components/ui/3d-card";
 import Link from "next/link";
 import { ProjectInfo } from "@/app/lib/types";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { analyticsEvents } from "@/app/lib/analytics";
 
 type ProjectCardProps = ProjectInfo;
 
@@ -106,6 +107,12 @@ export default function ThreeDProjectCard({
                 href={github}
                 target="__blank"
                 className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+                onClick={() =>
+                  analyticsEvents.trackSocialClick({
+                    platform: "github",
+                    section: "projects",
+                  })
+                }
               >
                 GitHub →
               </CardItem>
@@ -115,6 +122,12 @@ export default function ThreeDProjectCard({
                 href={live}
                 target="__blank"
                 className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                onClick={() =>
+                  analyticsEvents.trackDemoClick({
+                    project: `${title}`,
+                    section: "projects",
+                  })
+                }
               >
                 Demo
               </CardItem>

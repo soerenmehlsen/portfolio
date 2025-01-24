@@ -50,12 +50,13 @@ export const links: Link[] = [
 export const projectsData: ProjectInfo[] = [
   {
     title: "What's in my food",
-    description: "Helps users to find out how processed their food is and understand the ingredients with the help of AI.",
+    description:
+      "Helps users to find out how processed their food is and understand the ingredients with the help of AI.",
     techStack: ["Next.Js", "TypeScript", "TailwindCSS", "Supabase"],
     imageUrl: "/WhatsInMyFood.png",
     imageGifUrl: "/WhatsInMyFood.png",
     github: "https://github.com/soerenmehlsen/whatsInMyFood",
-    live: "https://whatsinmyfood-sorens-projects-416137d4.vercel.app/",
+    live: "https://whatsinmyfood.live/",
   },
   {
     title: "DeepDR",

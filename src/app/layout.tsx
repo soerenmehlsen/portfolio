@@ -6,6 +6,7 @@ import Navbar from "@/app/components/layout/Navbar";
 import ThemeSwitch from "@/app/components/layout/ThemeSwitch";
 import Footer from "@/app/components/layout/Footer";
 import React from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <GoogleAnalytics gaId="G-CJD54H1QRS" />
           <ThemeSwitch />
           <Footer />
         </Providers>
