@@ -18,7 +18,7 @@ const ImageModal: React.FC<{ imageGifUrl: string; onClose: () => void }> = ({
     <div className="relative">
       <button
         onClick={onClose}
-        className="absolute top-2 right-2 text-black text-2xl"
+        className="absolute top-2 right-2 text-2xl bg-white rounded-full p-2 w-10 h-10 inline-flex items-center justify-center text-black hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
       >
         ×
       </button>
