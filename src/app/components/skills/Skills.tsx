@@ -2,7 +2,6 @@
 import SectionHeading from "@/app/components/common/SectionHeading";
 import { skillsData } from "@/app/lib/data";
 import { useSectionInView } from "@/app/lib/useInView";
-
 import { motion } from "framer-motion";
 
 const fadeInAnimationVariants = {
@@ -25,10 +24,10 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="mb-28 max-w-[53rem] scroll-mt-12 text-center sm:mb-40 sm:scroll-mt-28"
     >
       <SectionHeading>{"My Tech Stack"}</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800 mt-0 sm:mt-28">
+      <ul className="mt-0 flex flex-wrap justify-center gap-2 text-lg text-gray-800 sm:mt-28">
         {skillsData.map((skill, index) => (
           <motion.li
             variants={fadeInAnimationVariants}
@@ -38,7 +37,7 @@ export default function Skills() {
             custom={index}
             key={index}
           >
-            <h3 className="dark:10 dark:text-white mt-10 sm:m-auto">
+            <h3 className="dark:10 mt-10 dark:text-white sm:m-auto">
               {skill.title}
             </h3>
             <ul>
@@ -50,9 +49,9 @@ export default function Skills() {
                   viewport={{ once: true }}
                   custom={index}
                   key={index}
-                  className="bg-white border-black rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80 mt-2"
+                  className="mt-2 rounded-xl border-black bg-white px-5 py-3 dark:bg-white/10 dark:text-white/80"
                 >
-                  <span className="flex items-center gap-2 text-neutral-600/90 dark:text-neutral-400/90 hover:text-black hover:duration-300 hover:dark:text-white">
+                  <span className="flex items-center gap-2 text-neutral-600/90 hover:text-black hover:duration-300 dark:text-neutral-400/90 hover:dark:text-white">
                     <tech.icon className="text-xl" />
                     {tech.name}
                   </span>

@@ -16,7 +16,7 @@ export default function About() {
       transition={{ delay: 0.175 }}
       id="about"
       ref={ref}
-      className="max-w-[45rem] text-center mb-28 sm:mb-40 scroll-mt-28"
+      className="max-w-[45rem] text-center mb-28 sm:mb-40 scroll-mt-12 sm:scroll-mt-28"
     >
       <div className="container mx-auto">
         <Fade
@@ -31,7 +31,7 @@ export default function About() {
 
         <div className="grid xl:grid-cols-2 lg:text-start">
           <div className="flex-1">
-            <div className="text-lg mt-12 xl:mt-3">
+            <div className="text-lg mt-2 xl:mt-3">
               <div className="flex justify-start flex-col">
                 <Fade
                   direction="up"

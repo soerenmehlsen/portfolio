@@ -63,7 +63,7 @@ export const projectsData: ProjectInfo[] = [
     description:
       "DeepDR is a program trained with deep learning model to detect diabetic retinopathy in retinal fundus images.",
     techStack: ["Matlab"],
-    imageUrl: "/DeepDR.png",
+    imageUrl: "/DeepDR.gif",
     imageGifUrl: "/DeepDR.gif",
     github: "https://github.com/soerenmehlsen/DeepDR",
     live: "https://github.com/soerenmehlsen/DeepDR",
