@@ -113,12 +113,12 @@ export default function About() {
               triggerOnce={true}
             >
               <Image
-                src="/gaming-room.png"
-                alt="Gaming room"
-                width="600"
-                height="600"
+                src="Studio_Ghibli_Soren.png"
+                alt="Ghibli Soren"
+                width="400"
+                height="300"
                 loading="lazy"
-                className="mt-8 mx-auto lg:mx-8 object-cover"
+                className="mt-8 mx-auto lg:mx-8 object-cover rounded-lg shadow-lg shadow-gray-500/20"
               />
             </Fade>
           </div>
