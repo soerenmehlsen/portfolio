@@ -1,6 +1,7 @@
 import { Link, ProjectInfo } from "@/app/lib/types";
 import { CgWorkAlt } from "react-icons/cg";
 import { LuGraduationCap } from "react-icons/lu";
+import { PiCertificate } from "react-icons/pi";
 import React from "react";
 import {
   FaReact,
@@ -123,11 +124,19 @@ export const skillsData = [
 ];
 
 export const experiencesData = [
+    {
+    title: "Microsoft Certified: Azure Fundamentals",
+    location: "Microsoft",
+    description:
+      "Achieved the Microsoft Azure Fundamentals (AZ-900) certification, demonstrating foundational knowledge of cloud services and how Microsoft Azure provides these services.",
+    icon: React.createElement(PiCertificate),
+    date: "jun 2025",
+  },
   {
     title: "Graduated Health Technology Engineer",
     location: "Aarhus University, DK",
     description:
-      "Throuhout my studies, I took various software courses to learn about software development",
+      "Throuhout my studies, I took various software courses to learn more about software development",
     icon: React.createElement(LuGraduationCap),
     date: "2020-2024",
   },
