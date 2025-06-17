@@ -43,6 +43,10 @@ export const links: Link[] = [
     hash: "#skills",
   },
   {
+    nameEng: "Certificates",
+    hash: "#certificates",
+  },
+  {
     nameEng: "Experience",
     hash: "#experience",
   },
@@ -122,6 +126,14 @@ export const skillsData = [
     ],
   },
 ];
+
+export const certificiateData = [
+  {
+    title: "Microsoft Certified: Azure Fundamentals",
+    imageUrl: "/AzureFundementals.png",
+    link: "https://learn.microsoft.com/api/credentials/share/da-dk/SorenMehlsen-6634/F7E22F82ACE518C4?sharingId=6D778FB19966C3A0"
+  }
+]
 
 export const experiencesData = [
     {

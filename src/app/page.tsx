@@ -5,6 +5,7 @@ import Projects from "@/app/components/projects/Projects";
 import Skills from "@/app/components/skills/Skills";
 import Experience from "@/app/components/experience/Experience";
 import SectionDivider from "@/app/components/common/SectionDivider";
+import Certificates from "./components/certificate/Certificates";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <Projects />
       <Skills />
+      <Certificates />
       <Experience />
     </main>
   );
