@@ -34,7 +34,7 @@ export default function Projects() {
       <BottomDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)}>
         {selectedProject && (
           <div>
-            <h2 className="text-lg font-semibold mb-2">
+            <h2 className="text-xl font-semibold mb-2">
               {selectedProject.title}
             </h2>
             <p className="text-sm">{selectedProject.description}</p>
