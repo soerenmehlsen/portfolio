@@ -4,7 +4,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { analyticsEvents } from "@/app/lib/analytics";
 
-type ProjectCardProps = ProjectInfo;
+type ProjectCardProps = ProjectInfo & {
+  onClick?: () => void;
+};
 
 export default function ProjectCard({
   title,
@@ -12,6 +14,7 @@ export default function ProjectCard({
   techStack = [],
   imageUrl,
   live,
+  onClick,
 }: ProjectCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -25,6 +28,7 @@ export default function ProjectCard({
       ref={ref}
       style={{ scale: scaleProgress, opacity: opacityProgress }}
       className="flex flex-col items-center px-4 pt-10 md:pt-10"
+      onClick={onClick}
     >
       <article className="w-[400px] max-w-full overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg">
         <Image
@@ -51,7 +55,7 @@ export default function ProjectCard({
           </div>
 
           <a
-            href={live}
+            // href={live}
             onClick={() =>
               analyticsEvents.trackDemoClick({
                 project: `${title}`,
