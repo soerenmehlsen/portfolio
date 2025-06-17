@@ -38,11 +38,9 @@ const Hero = () => {
             <Image
               src="/profilbillede.png"
               fill
-              objectFit="cover"
-              objectPosition="top"
               alt="hero"
               priority={true}
-              className="rounded-full shadow-xl"
+              className="rounded-full shadow-xl object-cover object-top"
             />
           </motion.div>
         </div>

@@ -41,7 +41,7 @@ export default function Skills() {
               {skill.title}
             </h3>
             <ul>
-              {skill.skills.map((tech, index) => (
+              {skill.skills.map((skill, index) => (
                 <motion.li
                   variants={fadeInAnimationVariants}
                   initial="initial"
@@ -52,8 +52,8 @@ export default function Skills() {
                   className="mt-2 rounded-xl border-black bg-white px-5 py-3 dark:bg-white/10 dark:text-white/80"
                 >
                   <span className="flex items-center gap-2 text-neutral-600/90 hover:text-black hover:duration-300 dark:text-neutral-400/90 hover:dark:text-white">
-                    <tech.icon className="text-xl" />
-                    {tech.name}
+                    <skill.icon className="text-xl" />
+                    {skill.name}
                   </span>
                 </motion.li>
               ))}
