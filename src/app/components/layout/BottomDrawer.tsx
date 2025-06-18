@@ -59,8 +59,10 @@ export default function BottomDrawer({ isOpen, onClose, children }: BottomDrawer
                         </div>
                         
                         {/* Scrollable content */}
-                        <div className="flex-1 overflow-y-auto px-4 pb-4">
-                            {children}
+                        <div className="overflow-y-auto max-w-4xl w-full mx-auto ">
+                            <div className="px-4">
+                                {children}
+                            </div>
                         </div>
                     </motion.div>
                 </>

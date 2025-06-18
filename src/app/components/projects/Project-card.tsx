@@ -30,7 +30,7 @@ export default function ProjectCard({
       className="flex flex-col items-center px-4 pt-10 md:pt-10"
       onClick={onClick}
     >
-      <article className="w-[400px] max-w-full overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg">
+      <article className="w-[400px] max-w-full overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg cursor-pointer">
         <Image
           src={imageUrl || "/upcoming-project.png"}
           height="1000"

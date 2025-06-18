@@ -23,7 +23,7 @@ export default function Certificates() {
                     src={certificate.imageUrl}
                     height="200"
                     width="200"
-                    className="object-cover"
+                    className="object-cover hover:scale-105"
                     alt={certificate.title}
                     loading="lazy"
                   />
