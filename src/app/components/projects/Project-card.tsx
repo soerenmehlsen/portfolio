@@ -13,7 +13,6 @@ export default function ProjectCard({
   description,
   techStack = [],
   imageUrl,
-  live,
   onClick,
 }: ProjectCardProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -53,9 +52,7 @@ export default function ProjectCard({
               ))}
             </ul>
           </div>
-
           <a
-            // href={live}
             onClick={() =>
               analyticsEvents.trackDemoClick({
                 project: `${title}`,
