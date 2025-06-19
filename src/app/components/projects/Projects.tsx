@@ -58,7 +58,7 @@ export default function Projects() {
                 href={selectedProject.github}
                 target=""
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50"
+                className="flex items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-700"
               >
                 <FiGithub className="h-4 w-4" />
                 View Code

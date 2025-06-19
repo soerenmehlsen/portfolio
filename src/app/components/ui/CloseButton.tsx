@@ -25,12 +25,12 @@ export default function CloseButton({
 
     return (
          <button
-      className={`flex ${sizeClasses[size]} items-center justify-center rounded-full bg-gray-50 transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-gray-400 border border-gray-300 hover:scale-105 shadow-lg ${className}`}
+      className={`flex ${sizeClasses[size]} items-center justify-center rounded-full bg-gray-50 dark:hover:bg-gray-800 dark:bg-transparent transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-gray-400 border border-gray-300 hover:scale-105 shadow-lg ${className}`}
       aria-label={ariaLabel}
       onClick={onClick}
     >
       <svg
-        className={`${iconSizeClasses[size]} text-gray-600`}
+        className={`${iconSizeClasses[size]} text-gray-600 dark:text-white`}
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

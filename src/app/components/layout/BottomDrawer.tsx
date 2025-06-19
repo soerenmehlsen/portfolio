@@ -42,7 +42,7 @@ export default function BottomDrawer({
 
           {/* Drawer */}
           <motion.div
-            className="fixed bottom-0 left-0 z-50 flex h-[80vh] sm:h-[90vh] w-full flex-col rounded-t-2xl bg-white shadow-lg"
+            className="fixed bottom-0 left-0 z-50 flex h-[80vh] sm:h-[90vh] w-full flex-col rounded-t-2xl bg-white dark:bg-gray-900 shadow-lg "
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}

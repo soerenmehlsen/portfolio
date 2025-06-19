@@ -33,7 +33,7 @@ const VerticalElement = ({
             date={date}
             icon={icon}
             iconStyle={{
-                background: theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
+                background: theme === "light" ? "white" : "rgba(0, 0, 0, 0.8)",
                 fontSize: "1.5rem",
             }}
             visible={inView}
