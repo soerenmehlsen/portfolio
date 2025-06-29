@@ -119,7 +119,7 @@ export default function About() {
                 height="300"
                 loading="lazy"
                 className="mt-12 mx-auto lg:mx-8 object-cover rounded-lg shadow-lg shadow-gray-500/20"
-              />
+                />
             </Fade>
           </div>
         </div>
