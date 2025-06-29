@@ -11,7 +11,8 @@ function PostHogPageView(): null {
 
   // Track pageviews
   useEffect(() => {
-    if (pathname && posthog) {
+    // Only track on the client side and PostHog is available
+    if (typeof window !== "undefined" && pathname && posthog) {
       let url = window.origin + pathname;
       if (searchParams.toString()) {
         url = url + `?${searchParams.toString()}`;
