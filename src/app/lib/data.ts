@@ -61,7 +61,7 @@ export const projectsData: ProjectInfo[] = [
     imageUrl: "/WhatsInMyFood.png",
     imageGifUrl: "/WhatsInMyFood.png",
     github: "https://github.com/soerenmehlsen/whatsInMyFood",
-    live: "https://whatsinmyfood.live/",
+    live: "https://whatsinmyfood.info/",
   },
   {
     title: "DeepDR",
