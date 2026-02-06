@@ -59,8 +59,8 @@ export const projectsData: ProjectInfo[] = [
     description:
       "ApoStatus helps pharmacies to manage their inventory through structured stocktake sessions to reduce errors and improve efficiency.",
     techStack: ["Next.Js", "TypeScript", "TailwindCSS", "Azure SQL"],
-    imageUrl: "/ApoStatus.png",
-    imageGifUrl: "/ApoStatus.png",
+    imageUrl: "/Apostatus.png",
+    imageGifUrl: "/Apostatus.png",
     github: "https://github.com/soerenmehlsen/apostatus",
     live: "https://apostatus-a7bsbyggbcbzhvb5.germanywestcentral-01.azurewebsites.net/",
   },
@@ -69,8 +69,8 @@ export const projectsData: ProjectInfo[] = [
     description:
       "Helps users to easily understand the ingredients and the processing of their food with the help of AI.",
     techStack: ["Next.Js", "TypeScript", "TailwindCSS", "Supabase"],
-    imageUrl: "/whatsinmyfood.png",
-    imageGifUrl: "/whatsinmyfood.png",
+    imageUrl: "/WhatsInMyFood.png",
+    imageGifUrl: "/WhatsInMyFood.png",
     github: "https://github.com/soerenmehlsen/whatsInMyFood",
     live: "https://whatsinmyfood.info/",
   },

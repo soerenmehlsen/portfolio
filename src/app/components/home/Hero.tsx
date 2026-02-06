@@ -62,7 +62,7 @@ const Hero = () => {
             </span>
           </AnimatedGradientText>
           <span className="waving-hand">👋</span>
-          <p className="text-[14px]">
+          <p className="text-sm sm:text-base mt-2">
             <NaturalTypewriter text="Health Tech engineer, who likes to build things on the web." />
           </p>
         </h1>
