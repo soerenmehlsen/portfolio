@@ -22,6 +22,7 @@ import {
 } from "react-icons/si";
 import { GoCopilot } from "react-icons/go";
 import { AiOutlineOpenAI } from "react-icons/ai";
+import { SiClaude } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 import { DiMsqlServer } from "react-icons/di";
 
@@ -54,12 +55,22 @@ export const links: Link[] = [
 
 export const projectsData: ProjectInfo[] = [
   {
+    title: "ApoStatus",
+    description:
+      "ApoStatus helps pharmacies to manage their inventory through structured stocktake sessions to reduce errors and improve efficiency.",
+    techStack: ["Next.Js", "TypeScript", "TailwindCSS", "Azure SQL"],
+    imageUrl: "/ApoStatus.png",
+    imageGifUrl: "/ApoStatus.png",
+    github: "https://github.com/soerenmehlsen/apostatus",
+    live: "https://apostatus-a7bsbyggbcbzhvb5.germanywestcentral-01.azurewebsites.net/",
+  },
+  {
     title: "What's in my food",
     description:
-      "Helps users to find out how processed their food is and understand the ingredients with the help of AI.",
+      "Helps users to easily understand the ingredients and the processing of their food with the help of AI.",
     techStack: ["Next.Js", "TypeScript", "TailwindCSS", "Supabase"],
-    imageUrl: "/WhatsInMyFood.png",
-    imageGifUrl: "/WhatsInMyFood.png",
+    imageUrl: "/whatsinmyfood.png",
+    imageGifUrl: "/whatsinmyfood.png",
     github: "https://github.com/soerenmehlsen/whatsInMyFood",
     live: "https://whatsinmyfood.info/",
   },
@@ -123,6 +134,7 @@ export const skillsData = [
     skills: [
       { name: "Copilot", icon: GoCopilot },
       { name: "ChatGPT", icon: AiOutlineOpenAI },
+      { name: "Claude", icon: SiClaude },
     ],
   },
 ];
