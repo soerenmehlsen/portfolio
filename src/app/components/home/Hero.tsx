@@ -12,6 +12,7 @@ import { Fade } from "react-awesome-reveal";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/app/lib/useInView";
 import AnimatedGradientText from "@/app/components/ui/AnimatedGradientText";
+import NaturalTypewriter from "@/app/components/ui/NaturalTypewriter";
 
 const Hero = () => {
   const { ref } = useSectionInView("#home", 0.5);
@@ -62,7 +63,7 @@ const Hero = () => {
           </AnimatedGradientText>
           <span className="waving-hand">👋</span>
           <p className="text-[14px]">
-            Health Tech engineer, who likes to build things on the web.
+            <NaturalTypewriter text="Health Tech engineer, who likes to build things on the web." />
           </p>
         </h1>
       </Fade>
