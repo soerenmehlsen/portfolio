@@ -26,7 +26,7 @@ const Hero = () => {
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div
-            className="w-72 h-72 relative"
+            className="relative h-72 w-72"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -41,7 +41,7 @@ const Hero = () => {
               fill
               alt="hero"
               priority={true}
-              className="rounded-full shadow-xl object-cover object-top"
+              className="rounded-full object-cover object-top shadow-xl"
             />
           </motion.div>
         </div>
@@ -62,21 +62,21 @@ const Hero = () => {
             </span>
           </AnimatedGradientText>
           <span className="waving-hand">👋</span>
-          <p className="text-sm sm:text-base mt-2">
+              <p className="mt-3 text-xs sm:text-base">
             <NaturalTypewriter text="Health Tech engineer, who likes to build things on the web." />
           </p>
         </h1>
       </Fade>
 
       <motion.div
-        className="flex sm:flex-row item-center justify-center gap-4 px-4 text-lg font-medium"
+        className="item-center flex justify-center gap-4 px-4 text-lg font-medium sm:flex-row"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
         <Link
           href="mailto:soeren48@hotmail.com"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
+          className="group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 dark:bg-white/10"
           onClick={() =>
             analyticsEvents.trackContactClick({
               type: "email",
@@ -92,7 +92,7 @@ const Hero = () => {
         </Link>
 
         <a
-          className="bg-gray-900 p-4 text-white flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+          className="borderBlack flex cursor-pointer items-center gap-2 rounded-full bg-gray-900 p-4 text-white transition hover:scale-[1.15] focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
           href="https://www.linkedin.com/in/soerenmehlsen"
           target="_blank"
           onClick={() =>
@@ -106,7 +106,7 @@ const Hero = () => {
         </a>
 
         <a
-          className="bg-gray-900 p-4 text-white flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+          className="borderBlack flex cursor-pointer items-center gap-2 rounded-full bg-gray-900 p-4 text-white transition hover:scale-[1.15] focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
           href="https://github.com/soerenmehlsen"
           target="_blank"
           onClick={() =>
