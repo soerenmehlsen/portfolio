@@ -54,6 +54,16 @@ export const links: Link[] = [
 ];
 
 export const projectsData: ProjectInfo[] = [
+    {
+    title: "Mit Budget",
+    description:
+      "A simple budgeting app to help manage personal finances and replace complicated Excel spreadsheets. ",
+    techStack: ["Next.Js", "TypeScript", "TailwindCSS", "Supabase"],
+    imageUrl: "/budget.png",
+    imageGifUrl: "/budget.png",
+    github: "https://github.com/soerenmehlsen/budget",
+    live: "https://budget-vert-eight.vercel.app",
+  },
   {
     title: "ApoStatus",
     description:
@@ -83,15 +93,6 @@ export const projectsData: ProjectInfo[] = [
     imageGifUrl: "/DeepDR.gif",
     github: "https://github.com/soerenmehlsen/DeepDR",
     live: "https://github.com/soerenmehlsen/DeepDR",
-  },
-  {
-    title: "Recreation of Facebook",
-    description: "Designed a prototype of Facebook's start page using Play 2.0",
-    techStack: ["UI/UX", "Play 2.0"],
-    imageUrl: "/FacebookPage.png",
-    imageGifUrl: "/FacebookPage.png",
-    github: "",
-    live: "https://appclip.apple.com/id?p=com.createwithplay.playgen3.Clip&pid=3d744091ab4680YaGwx&e=0",
   },
 ];
 
@@ -148,7 +149,15 @@ export const certificiateData = [
 ]
 
 export const experiencesData = [
-    {
+   {
+    title: "Full-Stack Developer",
+    location: "GEjSER ApS, DK",
+    description:
+      "I work with the development, optimization, and maintenance of internal business systems and integrations across the organization. My role includes building APIs, improving workflows, automating processes, and developing scalable solutions using modern web technologies and databases. I also contribute to technical strategy, AI initiatives, system  integrations, documentation, and the implementation of new digital solutions that improve efficiency and business operations.",
+    icon: React.createElement(CgWorkAlt),
+    date: "mar 2026",
+  },
+  {
     title: "Microsoft Certified: Azure Fundamentals",
     location: "Microsoft",
     description:

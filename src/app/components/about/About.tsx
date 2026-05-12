@@ -66,11 +66,7 @@ export default function About() {
                     <span className="font-medium">
                       C# in .NET, React.JS, MongoDB, and MSSQL
                     </span>
-                    , and I am continually trying to learn new skills. I am
-                    currently looking for a job as a{" "}
-                    <span className="font-medium">
-                      full-time software developer
-                    </span>
+                    , and I am continually trying to learn new skills. 
                     .
                   </p>
                 </Fade>
