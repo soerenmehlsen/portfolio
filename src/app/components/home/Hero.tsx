@@ -37,7 +37,7 @@ const Hero = () => {
             }}
           >
             <Image
-              src="/profilbillede.png"
+              src="/Profilbillede.png"
               fill
               alt="hero"
               priority={true}
