@@ -212,7 +212,7 @@ html.lenis body {
     position: absolute;
     inset: auto 0 -1px;
     height: 1px;
-    background: color-mix(in oklab, var(--color-bone) 20%, transparent);
+    background: var(--divider-color, color-mix(in oklab, var(--color-bone) 20%, transparent));
     transform-origin: left center;
 }
 
@@ -244,8 +244,58 @@ html.lenis body {
     to { transform: translateY(0); }
 }
 
+.skills-section {
+    --divider-color: color-mix(in oklab, var(--color-ink) 15%, transparent);
+}
+
+.skills-group {
+    --skills-stagger: 0px;
+}
+
+@media (min-width: 768px) {
+    .skills-group:nth-child(even) { --skills-stagger: 24px; }
+}
+
+@media (min-width: 1024px) {
+    .skills-group:nth-child(n) { --skills-stagger: calc(var(--skills-index) * 24px); }
+}
+
+.certificate-reveal { --skills-lift: 12px; }
+
+@keyframes skills-scroll-reveal {
+    from { opacity: 0; transform: translateY(var(--skills-lift, 16px)); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: no-preference) {
     @supports ((animation-timeline: view()) and (animation-range: entry) and (animation-timeline: scroll(root block)) and (view-timeline-inset: 40% 15%)) {
+        .skills-group {
+            view-timeline: --skills-entry block;
+            view-timeline-inset: 0 15%;
+        }
+
+        html:not(.scroll-animation-fallback) .skills-group-reveal {
+            animation: skills-scroll-reveal auto linear both;
+            animation-timeline: --skills-entry;
+            animation-range: entry var(--skills-stagger) entry calc(var(--skills-stagger) + 160px);
+        }
+
+        .certificate-entry {
+            view-timeline: --certificate-entry block;
+            view-timeline-inset: 0 15%;
+        }
+
+        html:not(.scroll-animation-fallback) .certificate-reveal {
+            animation: skills-scroll-reveal auto linear both;
+            animation-timeline: --certificate-entry;
+            animation-range: entry 0px entry 160px;
+        }
+
+        /* A focused certificate link must never be hidden by a scroll reveal. */
+        html:not(.scroll-animation-fallback) .certificate-reveal:focus-within {
+            animation: none;
+        }
+
         html:not(.scroll-animation-fallback) .scroll-progress {
             display: block;
             animation: scroll-line-draw auto linear both;
