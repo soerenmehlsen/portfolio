@@ -9,12 +9,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="sticky top-0 flex min-h-screen flex-col justify-between overflow-hidden bg-sand px-6 pb-8 pt-24 text-ink md:px-10"
+      className="md:sticky md:top-0 flex min-h-svh flex-col justify-between overflow-hidden bg-sand px-6 pb-8 pt-24 text-ink md:px-10"
     >
       <RevealHeading
         as="h1"
         text="SØREN MEHLSEN"
-        className="text-[clamp(1.5rem,9.4vw,10.5rem)] font-medium uppercase leading-[0.95] tracking-tighter"
+        className="whitespace-nowrap text-[calc((100vw-5rem)/7.5)] font-medium uppercase leading-[0.95] tracking-tighter"
       />
 
       <div className="flex flex-1 flex-col gap-8 pt-8 md:flex-row md:items-start md:justify-between">
@@ -36,13 +36,13 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="relative h-80 w-56 self-center md:h-[28rem] md:w-80 md:self-auto">
+        <div className="relative h-80 w-56 self-center md:h-[min(28rem,40svh)] md:w-auto md:aspect-[11/14] md:self-auto">
           <Image
             src="/profilbillede.png"
             alt="Portrait of Søren Mehlsen"
             fill
             priority
-            sizes="(min-width: 768px) 20rem, 14rem"
+            sizes="(min-width: 768px) 22rem, 14rem"
             className="object-cover object-top grayscale"
           />
         </div>
