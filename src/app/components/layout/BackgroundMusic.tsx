@@ -86,7 +86,8 @@ export default function BackgroundMusic() {
     }
     cancelAnimationFrame(fadeRef.current);
     // No src at all before an explicit click: no media request on page load.
-    if (!audio.getAttribute("src")) audio.src = "/audio/quiet-current.m4a";
+    if (!audio.getAttribute("src"))
+      audio.src = "/audio/mizmo-hello-the-sun-from-47s.m4a";
     clickAudioRef.current ??= createInterfaceAudio();
     clickAudioRef.current?.resume();
     if (playback === "error") audio.load();
@@ -97,7 +98,7 @@ export default function BackgroundMusic() {
       if (request !== requestRef.current) return;
       setPlayback("playing");
       soundEnabledRef.current = true;
-      fadeVolume(0.45, 900);
+      fadeVolume(0.2, 900);
     } catch {
       if (request === requestRef.current) {
         soundEnabledRef.current = false;
@@ -148,7 +149,7 @@ export default function BackgroundMusic() {
         aria-label="Site sound"
         aria-pressed={playing}
         aria-busy={playback === "loading"}
-        title={`${playing ? "Pause" : "Play"} Quiet Current — music and click sounds`}
+        title={`${playing ? "Pause" : "Play"} Mizmo — Hello, The Sun Is Up, Where Are You? (from 00:47)`}
         data-playing={playing}
         onClick={() => void toggle()}
       >
