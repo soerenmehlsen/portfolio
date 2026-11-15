@@ -47,9 +47,15 @@ export default function RevealHeading({
             {word.split("").map((char) => {
               const i = index++;
               return (
+                // The mask is larger than the glyph box (padding), with the same
+                // amount pulled back by a negative margin so line height and
+                // letter spacing are unchanged. Without the extra room, ink
+                // that sticks out of the box is cut flat: the slash of Ø at the
+                // top and bottom, and the right side of S and R at the sides
+                // (tight tracking makes each letter's box narrower than its ink).
                 <span
                   key={i}
-                  className="inline-block overflow-hidden align-bottom leading-[1.1]"
+                  className="-mx-[0.1em] -my-[0.18em] inline-block overflow-hidden px-[0.1em] py-[0.18em] align-bottom leading-[1.1]"
                 >
                   <motion.span
                     className="reveal-char inline-block"

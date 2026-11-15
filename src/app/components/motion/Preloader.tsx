@@ -7,8 +7,8 @@ import { LIFT_SECONDS } from "@/app/components/motion/intro";
 // One black shape with a round bottom edge. The edge keeps its curve the whole
 // way and the shape is lifted further than its own height, so the arc leaves
 // the screen at full speed instead of slowing down or lingering at the top.
-// Depth of the arc = half the gap between the corners (1000) and the control point (810).
-const SHAPE = "M0 0 L926 0 L926 1000 Q463 810 0 1000 L0 0";
+// Depth of the arc = half the gap between the corners (1000) and the control point (870).
+const SHAPE = "M0 0 L926 0 L926 1000 Q463 870 0 1000 L0 0";
 const SHAPE_HEIGHT_VH = 112; // just taller than the screen: the arc comes into view right away
 const TRAVEL_VH = 122; // more than SHAPE_HEIGHT_VH: the arc is fully gone before the end
 // Starts gently, then runs at a steady speed right to the end (the curve ends
