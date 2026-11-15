@@ -1,16 +1,9 @@
-import ActiveSectionContextProvider from "@/app/containers/active-section";
-import ThemeContextProvider from "@/app/containers/theme-context";
+import SmoothScroll from "@/app/components/motion/SmoothScroll";
 
 type ProvidersProps = {
     children: React.ReactNode;
 };
 
 export default function Providers({children}: ProvidersProps) {
-    return (
-        <ThemeContextProvider>
-            <ActiveSectionContextProvider>
-                {children}
-            </ActiveSectionContextProvider>
-        </ThemeContextProvider>
-    );
+    return <SmoothScroll>{children}</SmoothScroll>;
 }
