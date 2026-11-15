@@ -75,7 +75,7 @@ export default function Hero() {
               delay={TEXT_DELAY}
               className="text-m leading-snug font-medium tracking-tight md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl"
             />
-            <div className="self-start overflow-hidden">
+            <div className="hero-contact-reveal self-start">
               <motion.div
                 className="hero-in"
                 initial={{ opacity: 0, y: 100 }}

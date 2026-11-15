@@ -174,6 +174,7 @@ html.lenis body {
 
 .hero-sequence {
     --hero-travel: 90svh;
+    --hero-focus-scale: 1.3;
     --scene-progress: 0;
     position: relative;
     z-index: 0;
@@ -198,6 +199,22 @@ html.lenis body {
 }
 
 .hero-intro { grid-area: intro; }
+.hero-contact-reveal {
+    /* Leave room for the hover scale and keyboard outline in older browsers. */
+    margin: -0.5rem;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+@supports ((overflow: clip) and (overflow-clip-margin: 0.5rem)) {
+    .hero-contact-reveal {
+        margin: 0;
+        padding: 0;
+        overflow: clip;
+        overflow-clip-margin: 0.5rem;
+    }
+}
+
 .hero-location { grid-area: location; padding-bottom: 0.4rem; }
 
 .hero-art {
@@ -279,8 +296,29 @@ html.lenis body {
     to { opacity: 0; transform: translateY(-20px); visibility: hidden; }
 }
 
+@keyframes hero-art-focus {
+    from { transform: translate(0, 0) scale(1); }
+    to {
+        transform: translate(var(--hero-center-x, 0px), var(--hero-center-y, 0px))
+            scale(var(--hero-focus-scale));
+    }
+}
+
+@keyframes hero-art-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes hero-sculpture-exit {
+    from { transform: translateY(0) scale(1) rotate(0deg); }
+    to { transform: translateY(-8svh) scale(0.94) rotate(-4deg); }
+}
+
 @media (min-width: 1024px) {
-    .hero-sequence { --hero-travel: min(120svh, 72rem); }
+    .hero-sequence {
+        --hero-travel: min(120svh, 72rem);
+        --hero-focus-scale: 1.4;
+    }
     .hero-body {
         grid-template-areas: "intro art location";
         grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr) minmax(0, 0.7fr);
@@ -302,9 +340,24 @@ html.lenis body {
         position: sticky;
         top: 0;
         height: 100svh;
+        overflow: clip;
     }
 
     @supports ((animation-timeline: scroll(root block)) and (animation-range: 0px 100px)) {
+        .hero-sequence[data-scene-state="ready"] .hero-sculpture {
+            animation: hero-sculpture-exit auto linear both;
+            animation-timeline: scroll(root block);
+            animation-range: var(--hero-travel) calc(var(--hero-travel) + 55svh);
+        }
+
+        .hero-sequence[data-scene-state="ready"] .hero-art {
+            animation: hero-art-focus auto linear both, hero-art-out auto linear both;
+            animation-timeline: scroll(root block), scroll(root block);
+            animation-range:
+                0px calc(var(--hero-travel) * 0.22),
+                var(--hero-travel) calc(var(--hero-travel) + 55svh);
+        }
+
         .hero-sequence[data-scene-state="ready"] .hero-copy {
             animation: hero-copy-out auto linear both;
             animation-timeline: scroll(root block);
