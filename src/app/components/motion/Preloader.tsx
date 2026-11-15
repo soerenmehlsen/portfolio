@@ -8,8 +8,8 @@ import { LIFT_SECONDS } from "@/app/components/motion/intro";
 // way and the shape is lifted further than its own height, so the arc leaves
 // the screen at full speed instead of slowing down or lingering at the top.
 const SHAPE = "M0 0 L926 0 L926 1000 Q463 730 0 1000 L0 0";
-const SHAPE_HEIGHT_VH = 130; // taller than the screen so the arc starts below it
-const TRAVEL_VH = 140; // more than SHAPE_HEIGHT_VH: the arc is fully gone before the end
+const SHAPE_HEIGHT_VH = 118; // just taller than the screen: the arc comes into view right away
+const TRAVEL_VH = 128; // more than SHAPE_HEIGHT_VH: the arc is fully gone before the end
 // Starts gently, then runs at a steady speed right to the end (the curve ends
 // with slope 1), so the arc never slows down on its way out.
 const LIFT_EASE = [0.4, 0, 0.8, 0.8] as const;
