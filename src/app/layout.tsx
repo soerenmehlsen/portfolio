@@ -5,6 +5,7 @@ import "./globals.css";
 import Providers from "@/app/containers/providers";
 import Footer from "@/app/components/layout/Footer";
 import MenuButton from "@/app/components/layout/MenuButton";
+import BackgroundMusic from "@/app/components/layout/BackgroundMusic";
 import Preloader from "@/app/components/motion/Preloader";
 import React from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -58,6 +59,7 @@ export default function RootLayout({
             {children}
             <GoogleAnalytics gaId="G-CJD54H1QRS" />
             <MenuButton />
+            <BackgroundMusic />
             <Footer />
           </Providers>
         </body>

@@ -35,7 +35,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="contact-section relative z-10 -mt-6 scroll-mt-12 rounded-t-3xl bg-night px-6 pt-20 pb-8 text-bone md:px-10 md:pt-32"
+      className="contact-section relative z-10 -mt-6 scroll-mt-12 rounded-t-3xl bg-night px-6 pt-20 pb-24 text-bone md:px-10 md:pt-32"
     >
       <div className="contact-reveal">
         <RevealHeading
