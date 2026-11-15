@@ -36,3 +36,14 @@ html.lenis body {
 .lenis.lenis-stopped {
     overflow: hidden;
 }
+
+/* Reduced motion: motion primitives render their final state, same markup as the server HTML */
+@media (prefers-reduced-motion: reduce) {
+    .reveal-char {
+        transform: none !important;
+    }
+
+    .scroll-word {
+        opacity: 1 !important;
+    }
+}
