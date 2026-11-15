@@ -1,8 +1,3 @@
-import { links } from "./data";
-import React from "react";
-
-export type SectionName = (typeof links)[number]["hash"];
-
 export type Social = {
   name: "LinkedIn" | "GitHub";
   href: string;
@@ -21,12 +16,4 @@ export type ProjectInfo = {
 export type Link = {
   nameEng: string;
   hash: string;
-};
-
-export type VerticalElementType = {
-  title: string;
-  description: string;
-  location: string;
-  date: string;
-  icon: React.ReactElement;
 };
