@@ -29,9 +29,9 @@ export default function ProjectCard({
   const reduced = useReducedMotion();
 
   return (
-    <li className="border-b border-bone/20 py-10 md:py-16">
-      <article className="flex flex-col gap-6 md:flex-row md:gap-10">
-        <span className="font-mono text-5xl leading-none tracking-tighter text-olive md:w-48 md:shrink-0 md:text-8xl">
+    <li className="scroll-divider-bottom relative border-b border-bone/20 py-10 md:py-16">
+      <article className="project-entry flex flex-col gap-6 md:flex-row md:gap-10">
+        <span className="project-number font-mono text-5xl leading-none tracking-tighter text-olive md:w-48 md:shrink-0 md:text-8xl">
           {String(index + 1).padStart(2, "0")}
         </span>
         <div className="flex flex-1 flex-col gap-6">
@@ -118,6 +118,7 @@ export default function ProjectCard({
           </div>
         </div>
       </article>
+      <span aria-hidden="true" className="scroll-divider-line" />
     </li>
   );
 }

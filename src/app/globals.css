@@ -66,8 +66,99 @@ html.lenis body {
     opacity: 0.2;
 }
 
+/* Decorative effects default to the existing static design. */
+.scroll-progress,
+.scroll-divider-line {
+    display: none;
+    pointer-events: none;
+}
+
+.scroll-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 60;
+    height: 2px;
+    background: var(--color-olive);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+.scroll-divider-line {
+    position: absolute;
+    inset: auto 0 -1px;
+    height: 1px;
+    background: color-mix(in oklab, var(--color-bone) 20%, transparent);
+    transform-origin: left center;
+}
+
+.scroll-divider-line-top {
+    top: -1px;
+    bottom: auto;
+}
+
+.project-number {
+    --number-drift: 4px;
+}
+
+@media (min-width: 768px) {
+    .project-number { --number-drift: 8px; }
+}
+
+@keyframes scroll-line-draw {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+@keyframes project-number-drift {
+    from { transform: translateY(calc(-1 * var(--number-drift))); }
+    to { transform: translateY(var(--number-drift)); }
+}
+
+@keyframes contact-scroll-reveal {
+    from { transform: translateY(16px); }
+    to { transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: no-preference) {
     @supports ((animation-timeline: view()) and (animation-range: entry) and (animation-timeline: scroll(root block)) and (view-timeline-inset: 40% 15%)) {
+        html:not(.scroll-animation-fallback) .scroll-progress {
+            display: block;
+            animation: scroll-line-draw auto linear both;
+            animation-timeline: scroll(root block);
+        }
+
+        html:not(.scroll-animation-fallback) .scroll-divider-bottom {
+            border-bottom-color: transparent;
+        }
+
+        html:not(.scroll-animation-fallback) .scroll-divider-top {
+            border-top-color: transparent;
+        }
+
+        html:not(.scroll-animation-fallback) .scroll-divider-line {
+            display: block;
+            /* Fixed viewport distance also works inside the sticky experience cards. */
+            animation: scroll-line-draw auto linear both;
+            animation-timeline: view(block);
+            animation-range: entry 0% entry 25dvh;
+        }
+
+        .project-entry { view-timeline: --project-entry block; }
+
+        html:not(.scroll-animation-fallback) .project-number {
+            animation: project-number-drift auto linear both;
+            animation-timeline: --project-entry;
+            animation-range: cover 0% cover 100%;
+        }
+
+        .contact-section { view-timeline: --contact-entry block; }
+
+        html:not(.scroll-animation-fallback) .contact-reveal {
+            animation: contact-scroll-reveal auto linear both;
+            animation-timeline: --contact-entry;
+            animation-range: entry 0% entry 100%;
+        }
+
         html:not(.scroll-animation-fallback) .hero-scroll {
             animation: hero-scroll-out auto linear both;
             animation-timeline: scroll(root block);

@@ -40,8 +40,9 @@ export default function Experience() {
                 "--release": `${(last - i) * HEADER_REM}rem`,
               } as React.CSSProperties
             }
-            className="border-t border-bone/20 bg-night py-6 last:border-b md:sticky md:top-[var(--pin)] md:mb-[var(--release)] md:min-h-[17rem] md:py-0"
+            className="scroll-divider-top relative border-t border-bone/20 bg-night py-6 last:border-b md:sticky md:top-[var(--pin)] md:mb-[var(--release)] md:min-h-[17rem] md:py-0"
           >
+            <span aria-hidden="true" className="scroll-divider-line scroll-divider-line-top" />
             <div className="flex flex-col gap-3 md:h-16 md:flex-row md:items-center md:gap-10">
               <span className="font-mono text-xs uppercase tracking-wide text-olive md:w-24 md:shrink-0">
                 ({String(i + 1).padStart(2, "0")})

@@ -53,6 +53,7 @@ export default function RootLayout({
             <style>{`.reveal-char{transform:none!important}.scroll-word{opacity:1!important}.hero-in{opacity:1!important;transform:none!important}.hero-clip{opacity:1!important;transform:none!important;clip-path:none!important}.preloader{display:none!important}`}</style>
           </noscript>
           <Preloader />
+          <div className="scroll-progress" aria-hidden="true" />
           <Providers>
             {children}
             <GoogleAnalytics gaId="G-CJD54H1QRS" />
