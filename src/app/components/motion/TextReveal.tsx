@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useIntroSequence } from "./IntroSequence";
 
 type TextRevealProps = {
   text: string;
@@ -19,6 +20,7 @@ export default function TextReveal({
   wordDelay = 0,
 }: TextRevealProps) {
   const words = text.split(" ");
+  const { started } = useIntroSequence();
 
   return (
     <div className="overflow-hidden">
@@ -28,7 +30,7 @@ export default function TextReveal({
             key={i}
             className={`hero-in inline-block ${i < words.length - 1 ? "pr-[0.25em]" : ""}`}
             initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            animate={started ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
             transition={{
               ease: "easeOut",
               duration: 0.4,

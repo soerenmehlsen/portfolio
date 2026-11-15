@@ -1,4 +1,4 @@
-// Shared timing for the page-load intro, in seconds after the page hydrates.
+// Shared timing for the page-load intro, in seconds after the curtain starts lifting.
 // The curtain (Preloader) lifts for LIFT_SECONDS and its round edge has left
 // the screen before then; the hero starts revealing right after.
 export const LIFT_SECONDS = 1;

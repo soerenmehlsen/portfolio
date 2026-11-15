@@ -2,6 +2,7 @@
 
 import { Fragment, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useIntroSequence } from "./IntroSequence";
 
 type RevealHeadingProps = {
   text: string;
@@ -30,7 +31,8 @@ export default function RevealHeading({
   const Tag = as;
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
-  const active = immediate || inView;
+  const { started } = useIntroSequence();
+  const active = immediate ? started : inView;
 
   const words = text.split(" ");
   let index = 0;

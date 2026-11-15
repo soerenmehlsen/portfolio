@@ -3,13 +3,15 @@
 import { motion } from "framer-motion";
 import { INTRO_START } from "@/app/components/motion/intro";
 import { links } from "@/app/lib/data";
+import { useIntroSequence } from "@/app/components/motion/IntroSequence";
 
 export default function TopBar() {
+  const { started } = useIntroSequence();
   return (
     <motion.header
-      className="hero-in absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 font-mono text-xs uppercase tracking-wide text-ink md:px-10"
+      className="hero-in absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 font-mono text-xs tracking-wide text-ink uppercase md:px-10"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={{ opacity: started ? 1 : 0 }}
       transition={{ duration: 0.5, delay: INTRO_START + 0.2, ease: "easeIn" }}
     >
       <span>Full-Stack Developer</span>

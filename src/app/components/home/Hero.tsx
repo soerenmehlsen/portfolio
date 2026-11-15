@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 import RevealHeading from "@/app/components/motion/RevealHeading";
 import TextReveal from "@/app/components/motion/TextReveal";
 import { INTRO_START } from "@/app/components/motion/intro";
+import { useIntroSequence } from "@/app/components/motion/IntroSequence";
 import { analyticsEvents } from "@/app/lib/analytics";
 import { contactEmail } from "@/app/lib/data";
 
-// Entrance choreography, in seconds after load. Nothing moves until the
-// curtain (Preloader) has left the screen; after that the elements follow
-// each other with the same small offsets as the original sequence.
+// Original entrance choreography, timed from the loading screen's curtain lift.
+// Hero elements start once the rounded edge has left, preserving their offsets.
 const NAME_DELAY = INTRO_START;
 const ARROW_DELAY = INTRO_START;
 const SCULPTURE_DELAY = INTRO_START + 0.1;
@@ -19,6 +19,7 @@ const TEXT_DELAY = INTRO_START + 0.2;
 const POWER3_OUT = [0.215, 0.61, 0.355, 1] as const;
 
 export default function Hero() {
+  const { started } = useIntroSequence();
   const sectionRef = useRef<HTMLElement>(null);
   const [sceneState, setSceneState] = useState<SceneState>("loading");
   return (
@@ -65,7 +66,7 @@ export default function Hero() {
               aria-hidden
               className="hero-in text-2xl leading-none md:text-3xl lg:text-4xl xl:text-5xl"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              animate={{ opacity: started ? 1 : 0 }}
               transition={{ duration: 2, delay: ARROW_DELAY, ease: POWER3_OUT }}
             >
               ↘
@@ -79,7 +80,9 @@ export default function Hero() {
               <motion.div
                 className="hero-in"
                 initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={
+                  started ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }
+                }
                 transition={{
                   duration: 1.2,
                   delay: TEXT_DELAY,
@@ -110,7 +113,11 @@ export default function Hero() {
                 opacity: 0,
                 scale: 1.3,
               }}
-              animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1, scale: 1 }}
+              animate={
+                started
+                  ? { clipPath: "inset(0 0 0% 0)", opacity: 1, scale: 1 }
+                  : { clipPath: "inset(0 0 100% 0)", opacity: 0, scale: 1.3 }
+              }
               transition={{
                 duration: 1.8,
                 delay: SCULPTURE_DELAY,
