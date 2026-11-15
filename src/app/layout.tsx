@@ -1,34 +1,39 @@
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "@/app/containers/providers";
-import Navbar from "@/app/components/layout/Navbar";
-import ThemeSwitch from "@/app/components/layout/ThemeSwitch";
 import Footer from "@/app/components/layout/Footer";
+import MenuButton from "@/app/components/layout/MenuButton";
 import React from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { PostHogProvider } from "@/app/providers";
 
-const sora = Sora({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-sora",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter-tight",
+});
+
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "My personal portfolio",
+  title: "Søren Mehlsen – Full-Stack Developer",
+  description: "Portfolio of Søren Mehlsen – full-stack developer and health technology engineer based in Denmark.",
   openGraph: {
-    title: "Portfolio",
-    description: "My personal portfolio",
+    title: "Søren Mehlsen – Full-Stack Developer",
+    description: "Portfolio of Søren Mehlsen – full-stack developer and health technology engineer based in Denmark.",
     type: "website",
     url: "https://soerenmehlsen.me",
     siteName: "Søren's Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio",
-    description: "My personal portfolio",
+    title: "Søren Mehlsen – Full-Stack Developer",
+    description: "Portfolio of Søren Mehlsen – full-stack developer and health technology engineer based in Denmark.",
   },
 };
 
@@ -38,20 +43,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="!scroll-smooth">
+    <html lang="en">
       <PostHogProvider>
         <body
-          className={`${sora.variable} antialiasing relative flex flex-col overscroll-x-auto bg-gray-50 font-Sora text-gray-950 dark:bg-gray-900 dark:text-gray-50/90`}
+          className={`${interTight.variable} ${geistMono.variable} antialiased font-sans`}
         >
-          <div className="site-background">
-            <div className="site-bg-grid" />
-            <div className="site-bg-noise" />
-          </div>
+          <noscript>
+            <style>{`.reveal-char{transform:none!important}.scroll-word{opacity:1!important}`}</style>
+          </noscript>
           <Providers>
-            <Navbar />
             {children}
             <GoogleAnalytics gaId="G-CJD54H1QRS" />
-            <ThemeSwitch />
+            <MenuButton />
             <Footer />
           </Providers>
         </body>

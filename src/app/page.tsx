@@ -1,22 +1,19 @@
+import Experience from "@/app/components/experience/Experience";
 import Hero from "@/app/components/home/Hero";
-import React from "react";
-import About from "@/app/components/about/About";
 import Projects from "@/app/components/projects/Projects";
 import Skills from "@/app/components/skills/Skills";
-import Experience from "@/app/components/experience/Experience";
-import SectionDivider from "@/app/components/common/SectionDivider";
-import Certificates from "./components/certificate/Certificates";
+import About from "@/app/components/about/About";
+import TopBar from "@/app/components/layout/TopBar";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center pt-20 md:pt-28 px-4">
+    <main>
+      <TopBar />
       <Hero />
-      <SectionDivider />
-      <About />
+      <Experience />
       <Projects />
       <Skills />
-      <Certificates />
-      <Experience />
+      <About />
     </main>
   );
 }

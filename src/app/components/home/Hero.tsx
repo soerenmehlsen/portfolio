@@ -1,125 +1,58 @@
 "use client";
-import React from "react";
+
 import Image from "next/image";
-import { BsLinkedin } from "react-icons/bs";
-import { FaGithubSquare } from "react-icons/fa";
-import { Mail } from "lucide-react";
-import Link from "next/link";
+import RevealHeading from "@/app/components/motion/RevealHeading";
 import { analyticsEvents } from "@/app/lib/analytics";
+import { contactEmail } from "@/app/lib/data";
 
-// Animation
-import { Fade } from "react-awesome-reveal";
-import { motion } from "framer-motion";
-import { useSectionInView } from "@/app/lib/useInView";
-import AnimatedGradientText from "@/app/components/ui/AnimatedGradientText";
-import NaturalTypewriter from "@/app/components/ui/NaturalTypewriter";
-
-const Hero = () => {
-  const { ref } = useSectionInView("#home", 0.5);
-
+export default function Hero() {
   return (
     <section
-      ref={ref}
       id="home"
-      className="mb-28 max-w-[75rem] text-center sm:mb-0"
+      className="md:sticky md:top-0 flex min-h-svh flex-col justify-between overflow-hidden bg-sand px-6 pb-8 pt-24 text-ink md:px-10"
     >
-      <div className="flex items-center justify-center">
-        <div className="relative">
-          <motion.div
-            className="relative h-72 w-72"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              damping: 10,
-              duration: 0.2,
-            }}
+      <RevealHeading
+        as="h1"
+        text="SØREN MEHLSEN"
+        className="whitespace-nowrap text-[calc((100vw-5rem)/7.5)] font-medium uppercase leading-[0.95] tracking-tighter"
+      />
+
+      <div className="flex flex-1 flex-col gap-8 pt-8 md:flex-row md:items-start md:justify-between">
+        <div className="flex max-w-sm flex-col gap-6">
+          <span aria-hidden className="text-5xl leading-none">
+            ↘
+          </span>
+          <p className="text-xl font-medium tracking-tight md:text-2xl">
+            Health Tech engineer, who likes to build things on the web.
+          </p>
+          <a
+            href={`mailto:${contactEmail}`}
+            onClick={() =>
+              analyticsEvents.trackContactClick({ type: "email", section: "hero" })
+            }
+            className="self-start rounded-full bg-ink px-7 py-3 font-mono text-xs uppercase tracking-wide text-sand transition-transform duration-200 hover:scale-105"
           >
-            <Image
-              src="/profilbillede.png"
-              fill
-              alt="hero"
-              priority={true}
-              className="rounded-full object-cover object-top shadow-xl"
-            />
-          </motion.div>
+            Contact ↗
+          </a>
+        </div>
+
+        <div className="relative h-80 w-56 self-center md:h-[min(28rem,40svh)] md:w-auto md:aspect-[11/14] md:self-auto">
+          <Image
+            src="/profilbillede.png"
+            alt="Portrait of Søren Mehlsen"
+            fill
+            priority
+            sizes="(min-width: 768px) 22rem, 14rem"
+            className="object-cover object-top grayscale"
+          />
         </div>
       </div>
 
-      <Fade
-        direction="up"
-        delay={400}
-        cascade
-        damping={1e-1}
-        triggerOnce={true}
-      >
-        <h1 className="mb-10 mt-4 text-2xl sm:text-4xl">
-          Hi, I&apos;m
-          <AnimatedGradientText>
-            <span className="inline animate-gradient bg-linear-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">
-              Soren
-            </span>
-          </AnimatedGradientText>
-          <span className="waving-hand">👋</span>
-              <p className="mt-3 text-xs sm:text-base">
-            <NaturalTypewriter text="Health Tech engineer, who likes to build things on the web." />
-          </p>
-        </h1>
-      </Fade>
-
-      <motion.div
-        className="item-center flex justify-center gap-4 px-4 text-lg font-medium sm:flex-row"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-      >
-        <Link
-          href="mailto:soeren48@hotmail.com"
-          className="group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-hidden transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 dark:bg-white/10"
-          onClick={() =>
-            analyticsEvents.trackContactClick({
-              type: "email",
-              section: "hero",
-            })
-          }
-        >
-          <span className="relative flex h-3 w-3">
-            <span className="btn-ping" />
-            <span className="btn-ping_dot" />
-          </span>
-          Connect <Mail color={"#9ca3af"} />
-        </Link>
-
-        <a
-          className="borderBlack flex cursor-pointer items-center gap-2 rounded-full bg-gray-900 p-4 text-white transition hover:scale-[1.15] focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
-          href="https://www.linkedin.com/in/soerenmehlsen"
-          target="_blank"
-          onClick={() =>
-            analyticsEvents.trackSocialClick({
-              platform: "linkedin",
-              section: "hero",
-            })
-          }
-        >
-          <BsLinkedin />
-        </a>
-
-        <a
-          className="borderBlack flex cursor-pointer items-center gap-2 rounded-full bg-gray-900 p-4 text-white transition hover:scale-[1.15] focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
-          href="https://github.com/soerenmehlsen"
-          target="_blank"
-          onClick={() =>
-            analyticsEvents.trackSocialClick({
-              platform: "github",
-              section: "hero",
-            })
-          }
-        >
-          <FaGithubSquare />
-        </a>
-      </motion.div>
+      <p className="self-end text-right font-mono text-xs uppercase leading-relaxed tracking-wide text-stone">
+        Based in
+        <br />
+        Denmark
+      </p>
     </section>
   );
-};
-export default Hero;
+}

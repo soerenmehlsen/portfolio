@@ -1,4 +1,4 @@
-import { Link, ProjectInfo } from "@/app/lib/types";
+import { Link, ProjectInfo, Social } from "@/app/lib/types";
 import { CgWorkAlt } from "react-icons/cg";
 import { LuGraduationCap } from "react-icons/lu";
 import { PiCertificate } from "react-icons/pi";
@@ -27,30 +27,19 @@ import { VscAzure } from "react-icons/vsc";
 import { DiMsqlServer } from "react-icons/di";
 
 export const links: Link[] = [
-  {
-    nameEng: "Home",
-    hash: "#home",
-  },
-  {
-    nameEng: "About",
-    hash: "#about",
-  },
-  {
-    nameEng: "Projects",
-    hash: "#projects",
-  },
-  {
-    nameEng: "Skills",
-    hash: "#skills",
-  },
-  {
-    nameEng: "Certificates",
-    hash: "#certificates",
-  },
-  {
-    nameEng: "Experience",
-    hash: "#experience",
-  },
+  { nameEng: "Home", hash: "#home" },
+  { nameEng: "Experience", hash: "#experience" },
+  { nameEng: "Projects", hash: "#projects" },
+  { nameEng: "Skills", hash: "#skills" },
+  { nameEng: "About", hash: "#about" },
+  { nameEng: "Contact", hash: "#contact" },
+];
+
+export const contactEmail = "soeren48@hotmail.com";
+
+export const socials: Social[] = [
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/soerenmehlsen" },
+  { name: "GitHub", href: "https://github.com/soerenmehlsen" },
 ];
 
 export const projectsData: ProjectInfo[] = [
@@ -143,6 +132,7 @@ export const skillsData = [
 export const certificiateData = [
   {
     title: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
     imageUrl: "/AzureFundementals.png",
     link: "https://learn.microsoft.com/api/credentials/share/da-dk/SorenMehlsen-6634/F7E22F82ACE518C4?sharingId=6D778FB19966C3A0"
   }

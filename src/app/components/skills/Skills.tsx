@@ -1,64 +1,63 @@
-"use client";
-import SectionHeading from "@/app/components/common/SectionHeading";
-import { skillsData } from "@/app/lib/data";
-import { useSectionInView } from "@/app/lib/useInView";
-import { motion } from "framer-motion";
-
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.1 * index,
-    },
-  }),
-};
+import RevealHeading from "@/app/components/motion/RevealHeading";
+import { certificiateData, skillsData } from "@/app/lib/data";
 
 export default function Skills() {
-  const { ref } = useSectionInView("#skills", 0.1);
   return (
     <section
       id="skills"
-      ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-12 text-center sm:mb-40 sm:scroll-mt-28"
+      className="relative z-10 -mt-6 scroll-mt-12 rounded-t-3xl bg-sand px-6 pb-24 pt-20 text-ink md:px-10 md:pb-40 md:pt-32"
     >
-      <SectionHeading>{"My Tech Stack"}</SectionHeading>
-      <ul className="mt-0 flex flex-wrap justify-center gap-2 text-lg text-gray-800 sm:mt-28">
-        {skillsData.map((skill, index) => (
-          <motion.li
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            custom={index}
-            key={index}
-          >
-            <h3 className="dark:10 mt-10 dark:text-white sm:m-auto">
-              {skill.title}
+      <p className="font-mono text-xs uppercase tracking-wide text-stone">
+        (STACK)
+      </p>
+      <RevealHeading
+        text="SKILLS /"
+        className="mt-6 text-[clamp(2.5rem,9vw,8rem)] font-medium uppercase leading-[0.95] tracking-tighter"
+      />
+      <div className="mt-12 grid gap-12 md:mt-20 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        {skillsData.map((group) => (
+          <div key={group.title}>
+            <h3 className="font-mono text-xs uppercase tracking-wide text-stone">
+              {group.title}
             </h3>
-            <ul>
-              {skill.skills.map((skill, index) => (
-                <motion.li
-                  variants={fadeInAnimationVariants}
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true }}
-                  custom={index}
-                  key={index}
-                  className="mt-2 rounded-xl border-black bg-white px-5 py-3 dark:bg-white/10 dark:text-white/80"
+            <ul className="mt-4 border-t border-ink/15">
+              {group.skills.map((skill) => (
+                <li
+                  key={skill.name}
+                  className="flex items-center gap-3 border-b border-ink/15 py-3 text-lg font-medium tracking-tight"
                 >
-                  <span className="flex items-center gap-2 text-neutral-600/90 hover:text-black hover:duration-300 dark:text-neutral-400/90 hover:dark:text-white">
-                    <skill.icon className="text-xl" />
-                    {skill.name}
-                  </span>
-                </motion.li>
+                  <skill.icon className="text-xl" aria-hidden="true" />
+                  {skill.name}
+                </li>
               ))}
             </ul>
-          </motion.li>
+          </div>
+        ))}
+      </div>
+      <ul className="mt-16 border-t border-ink/15 md:mt-24">
+        {certificiateData.map((certificate) => (
+          <li
+            key={certificate.title}
+            className="flex flex-col gap-3 border-b border-ink/15 py-6 md:flex-row md:items-center md:justify-between"
+          >
+            <div>
+              <h3 className="text-xl font-medium tracking-tight md:text-2xl">
+                {certificate.title}
+              </h3>
+              <p className="mt-1 font-mono text-xs uppercase tracking-wide text-stone">
+                {certificate.issuer}
+              </p>
+            </div>
+            <a
+              href={certificate.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View certificate: ${certificate.title}`}
+              className="font-mono text-xs uppercase tracking-wide underline-offset-4 transition-colors duration-200 hover:text-stone hover:underline"
+            >
+              VIEW ↗
+            </a>
+          </li>
         ))}
       </ul>
     </section>
