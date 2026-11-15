@@ -46,4 +46,20 @@ html.lenis body {
     .scroll-word {
         opacity: 1 !important;
     }
+
+    /* Hero entrance: show everything at once, no curtain */
+    .hero-in {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .hero-clip {
+        opacity: 1 !important;
+        transform: none !important;
+        clip-path: none !important;
+    }
+
+    .preloader {
+        display: none !important;
+    }
 }

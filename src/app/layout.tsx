@@ -5,6 +5,7 @@ import "./globals.css";
 import Providers from "@/app/containers/providers";
 import Footer from "@/app/components/layout/Footer";
 import MenuButton from "@/app/components/layout/MenuButton";
+import Preloader from "@/app/components/motion/Preloader";
 import React from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { PostHogProvider } from "@/app/providers";
@@ -49,8 +50,9 @@ export default function RootLayout({
           className={`${interTight.variable} ${geistMono.variable} antialiased font-sans`}
         >
           <noscript>
-            <style>{`.reveal-char{transform:none!important}.scroll-word{opacity:1!important}`}</style>
+            <style>{`.reveal-char{transform:none!important}.scroll-word{opacity:1!important}.hero-in{opacity:1!important;transform:none!important}.hero-clip{opacity:1!important;transform:none!important;clip-path:none!important}.preloader{display:none!important}`}</style>
           </noscript>
+          <Preloader />
           <Providers>
             {children}
             <GoogleAnalytics gaId="G-CJD54H1QRS" />
