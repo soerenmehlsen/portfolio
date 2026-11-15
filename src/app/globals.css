@@ -23,6 +23,16 @@ body {
     @apply bg-sand text-ink;
 }
 
+.menu-dialog:modal {
+    overscroll-behavior: contain;
+}
+
+.menu-dialog::backdrop {
+    background: var(--color-night);
+    overflow: hidden;
+    overscroll-behavior: contain;
+}
+
 /* Lenis */
 html.lenis,
 html.lenis body {

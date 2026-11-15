@@ -20,6 +20,20 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Static images
+
+`npm run dev` and `npm run build` generate responsive AVIF and WebP variants
+with Sharp before starting Next.js. GitHub Pages runs `npm run build` too.
+No runtime image server is required; generated files in `public/optimized/`
+are ignored by Git and copied into the static export.
+
+To add a portfolio image, register its public URL and desired widths in
+`src/app/lib/image-assets.json`, then use `ResponsiveImage` inside a sized,
+positioned container. Keep the original PNG as the browser fallback. Run
+`npm run images:optimize` manually after replacing an image during development.
+DeepDR shows a responsive still image until the visitor chooses Play demo;
+Stop demo removes the animated GIF again.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

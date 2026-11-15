@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import ResponsiveImage from "@/app/components/ResponsiveImage";
 import {
   motion,
   useReducedMotion,
@@ -66,7 +66,7 @@ export default function Hero() {
           <div className="flex max-w-sm flex-col gap-6 2xl:max-w-md">
             <motion.span
               aria-hidden
-              className="hero-in text-5xl leading-none"
+              className="hero-in text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 2, delay: ARROW_DELAY, ease: POWER3_OUT }}
@@ -76,7 +76,7 @@ export default function Hero() {
             <TextReveal
               text="Health Tech engineer, who likes to build things on the web."
               delay={TEXT_DELAY}
-              className="text-xl font-medium leading-snug tracking-tight md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl"
+              className="text-m font-medium leading-snug tracking-tight md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl"
             />
             <div className="self-start overflow-hidden">
               <motion.div
@@ -108,12 +108,11 @@ export default function Hero() {
               animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1, scale: 1 }}
               transition={{ duration: 1.8, delay: IMAGE_DELAY, ease: POWER3_OUT }}
             >
-              <Image
+              <ResponsiveImage
                 src="/profilbillede.png"
                 alt="Portrait of Søren Mehlsen"
-                fill
                 priority
-                sizes="(min-width: 768px) 22rem, 14rem"
+                sizes="(min-width: 768px) min(28.3rem, max(14.2rem, 33svh)), min(15.8rem, 33svh)"
                 className="object-cover object-top"
               />
             </motion.div>

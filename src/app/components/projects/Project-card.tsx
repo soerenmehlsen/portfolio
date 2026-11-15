@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
+import { useRef, useState } from "react";
+import ResponsiveImage from "@/app/components/ResponsiveImage";
+import assets from "@/app/lib/image-assets.json";
 import {
   motion,
   useReducedMotion,
@@ -22,7 +23,14 @@ export default function ProjectCard({
   index: number;
 }) {
   const { title, description, techStack = [], github, live } = project;
-  const src = project.imageGifUrl ?? project.imageUrl ?? "/upcoming-project.png";
+  const source = project.imageUrl ?? "/upcoming-project.png";
+  const src = Object.hasOwn(assets, source)
+    ? (source as keyof typeof assets)
+    : "/upcoming-project.png";
+  const [playing, setPlaying] = useState(false);
+  const animation = project.imageGifUrl?.endsWith(".gif")
+    ? project.imageGifUrl
+    : undefined;
   const cardRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({
@@ -32,7 +40,7 @@ export default function ProjectCard({
   const scale = useTransform(
     scrollYProgress,
     [0, 0.5],
-    reduced ? [1, 1] : [1.08, 1],
+    reduced ? [1, 1] : [1.08, 1]
   );
 
   return (
@@ -49,27 +57,44 @@ export default function ProjectCard({
             className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-bone/10"
           >
             <motion.div className="absolute inset-0" style={{ scale }}>
-              <Image
-                src={src}
-                alt={title}
-                fill
-                unoptimized
-                sizes="(min-width: 768px) 60vw, 100vw"
-                className="object-cover"
-              />
+              {playing && animation ? (
+                <img
+                  src={animation}
+                  alt={title}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : (
+                <ResponsiveImage
+                  src={src}
+                  alt={title}
+                  sizes="(min-width: 768px) calc(100vw - 19.5rem), calc(100vw - 3rem)"
+                  className="object-cover"
+                />
+              )}
             </motion.div>
+            {animation && (
+              <button
+                type="button"
+                aria-pressed={playing}
+                aria-label={`${playing ? "Stop" : "Play"} ${title} demo`}
+                onClick={() => setPlaying((value) => !value)}
+                className="absolute right-4 bottom-4 rounded-full bg-ink px-5 py-3 font-mono text-xs text-sand"
+              >
+                {playing ? "Stop demo" : "Play demo"}
+              </button>
+            )}
           </motion.div>
           <p className="max-w-2xl text-base leading-relaxed text-bone md:text-lg">
             {description}
           </p>
-          <h3 className="font-mono text-sm uppercase tracking-wide text-sand">
+          <h3 className="font-mono text-sm tracking-wide text-sand uppercase">
             {title}
           </h3>
           <ul className="flex flex-wrap gap-2">
             {techStack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-full border border-bone/30 px-3 py-1 font-mono text-[0.7rem] uppercase tracking-wide text-bone"
+                className="rounded-full border border-bone/30 px-3 py-1 font-mono text-[0.7rem] tracking-wide text-bone uppercase"
               >
                 {tech}
               </li>

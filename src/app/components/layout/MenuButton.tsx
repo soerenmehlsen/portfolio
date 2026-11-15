@@ -1,39 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useId, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { links, socials } from "@/app/lib/data";
 import { analyticsEvents } from "@/app/lib/analytics";
-import { useLenis } from "@/app/components/motion/SmoothScroll";
 
 export default function MenuButton() {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
-  const lenis = useLenis();
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const dialogId = useId();
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.8);
+    const onScroll = () =>
+      setVisible(window.scrollY > window.innerHeight * 0.8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
-    lenis?.stop();
-    const previous = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.documentElement.style.overflow = previous;
-      lenis?.start();
-    };
-  }, [open, lenis]);
+  const openMenu = () => {
+    dialogRef.current?.showModal();
+    setOpen(true);
+  };
+  const closeMenu = () => dialogRef.current?.close();
 
   const shown = visible || open;
 
@@ -41,10 +32,12 @@ export default function MenuButton() {
     <>
       <button
         type="button"
-        aria-label={open ? "Close menu" : "Open menu"}
+        aria-label="Open menu"
         aria-expanded={open}
-        onClick={() => setOpen((value) => !value)}
-        className={`fixed right-5 top-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-sand/30 bg-ink text-sand transition-all duration-300 hover:scale-105 ${
+        aria-controls={dialogId}
+        aria-haspopup="dialog"
+        onClick={openMenu}
+        className={`fixed top-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-sand/30 bg-ink text-sand transition-all duration-300 hover:scale-105 ${
           shown
             ? "scale-100 opacity-100"
             : "md:pointer-events-none md:invisible md:scale-75 md:opacity-0"
@@ -64,32 +57,50 @@ export default function MenuButton() {
         </span>
       </button>
 
-      <AnimatePresence>
+      <dialog
+        ref={dialogRef}
+        id={dialogId}
+        aria-label="Menu"
+        onClose={() => setOpen(false)}
+        data-lenis-prevent
+        className="menu-dialog fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none overflow-y-auto border-0 bg-night p-0 text-sand"
+      >
+        <form method="dialog" className="absolute top-5 right-5 z-10">
+          <button
+            type="submit"
+            autoFocus
+            aria-label="Close menu"
+            className="flex h-14 w-14 items-center justify-center rounded-full border border-sand/30 bg-ink text-sand motion-safe:transition-transform motion-safe:hover:scale-105"
+          >
+            <span aria-hidden className="relative block h-6 w-6">
+              <span className="absolute top-3 left-0 h-px w-6 rotate-45 bg-current" />
+              <span className="absolute top-3 left-0 h-px w-6 -rotate-45 bg-current" />
+            </span>
+          </button>
+        </form>
         {open && (
           <motion.div
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menu"
-            data-lenis-prevent
-            className="fixed inset-0 z-40 flex flex-col justify-between overflow-y-auto bg-night px-6 pb-10 pt-28 text-sand md:px-10"
+            className="flex min-h-full flex-col justify-between gap-10 bg-night px-6 pt-28 pb-10 md:px-10"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
-            exit={{ clipPath: "inset(0 0 100% 0)" }}
-            transition={{ duration: reduceMotion ? 0 : 0.7, ease: [0.77, 0, 0.175, 1] }}
+            transition={{
+              duration: reduceMotion ? 0 : 0.7,
+              ease: [0.77, 0, 0.175, 1],
+            }}
           >
             <nav aria-label="Menu" className="flex flex-col gap-2">
               {links.map((link) => (
                 <a
                   key={link.hash}
                   href={link.hash}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                   className="text-5xl font-medium tracking-tight transition-opacity duration-200 hover:opacity-60 md:text-7xl"
                 >
                   {link.nameEng}
                 </a>
               ))}
             </nav>
-            <div className="flex gap-6 font-mono text-xs uppercase tracking-wide text-bone">
+            <div className="flex gap-6 font-mono text-xs tracking-wide text-bone uppercase">
               {socials.map((social) => (
                 <a
                   key={social.name}
@@ -110,7 +121,7 @@ export default function MenuButton() {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </dialog>
     </>
   );
 }
