@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative z-10 scroll-mt-12 bg-sand px-6 pb-24 pt-8 text-ink md:px-10 md:pb-40 md:pt-16"
+      className="relative z-10 scroll-mt-12 bg-sand px-6 pb-32 pt-8 text-ink md:px-10 md:pb-40 md:pt-16"
     >
       <p className="font-mono text-xs uppercase tracking-wide text-stone">
         (ABOUT)
