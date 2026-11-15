@@ -132,6 +132,7 @@ export const skillsData = [
 export const certificiateData = [
   {
     title: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
     imageUrl: "/AzureFundementals.png",
     link: "https://learn.microsoft.com/api/credentials/share/da-dk/SorenMehlsen-6634/F7E22F82ACE518C4?sharingId=6D778FB19966C3A0"
   }
@@ -148,6 +149,7 @@ export const experiencesData = [
   },
   {
     title: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
     location: "Microsoft",
     description:
       "Achieved the Microsoft Azure Fundamentals (AZ-900) certification, demonstrating foundational knowledge of cloud services and how Microsoft Azure provides these services.",
