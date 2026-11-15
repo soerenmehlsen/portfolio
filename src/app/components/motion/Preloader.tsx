@@ -2,12 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { LIFT_SECONDS } from "@/app/components/motion/intro";
 
-// The curtain's bottom edge is a round arc that keeps its shape while the
-// whole curtain lifts away, so the arc leaves the screen still curved.
-const CURVED = "M0 0 L926 0 L926 1000 Q463 730 0 1000 L0 0";
-
-const LIFT_SECONDS = 2;
+// One black shape with a round bottom edge. The edge keeps its curve the whole
+// way and the shape is lifted further than its own height, so the arc leaves
+// the screen at full speed instead of slowing down or lingering at the top.
+const SHAPE = "M0 0 L926 0 L926 1000 Q463 730 0 1000 L0 0";
+const SHAPE_HEIGHT_VH = 130; // taller than the screen so the arc starts below it
+const TRAVEL_VH = 140; // more than SHAPE_HEIGHT_VH: the arc is fully gone before the end
+// Starts gently, then runs at a steady speed right to the end (the curve ends
+// with slope 1), so the arc never slows down on its way out.
+const LIFT_EASE = [0.4, 0, 0.8, 0.8] as const;
 // Safety net in case the animation never reports completion.
 const MAX_MS = 3500;
 
@@ -29,18 +34,19 @@ export default function Preloader() {
   return (
     <motion.div
       aria-hidden
-      className="preloader pointer-events-none fixed left-0 top-0 z-[100] h-screen w-screen bg-night"
+      className="preloader pointer-events-none fixed left-0 top-0 z-[100] h-screen w-screen"
       initial={{ y: "0vh" }}
-      animate={{ y: "-100vh" }}
-      transition={{ duration: LIFT_SECONDS, ease: [0.2, 0.38, 0.09, 0.91] }}
+      animate={{ y: `-${TRAVEL_VH}vh` }}
+      transition={{ duration: LIFT_SECONDS, ease: LIFT_EASE }}
       onAnimationComplete={() => setDone(true)}
     >
       <svg
-        className="absolute top-0 h-[calc(100%+300px)] w-full"
+        className="absolute top-0 w-full"
+        style={{ height: `${SHAPE_HEIGHT_VH}vh` }}
         viewBox="0 0 926 1000"
         preserveAspectRatio="none"
       >
-        <path className="fill-night" d={CURVED} />
+        <path className="fill-night" d={SHAPE} />
       </svg>
     </motion.div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { INTRO_START } from "@/app/components/motion/intro";
 import { links } from "@/app/lib/data";
 
 export default function TopBar() {
@@ -9,7 +10,7 @@ export default function TopBar() {
       className="hero-in absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 font-mono text-xs uppercase tracking-wide text-ink md:px-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 1.3, ease: "easeIn" }}
+      transition={{ duration: 0.5, delay: INTRO_START + 0.2, ease: "easeIn" }}
     >
       <span>Full-Stack Developer</span>
       <nav aria-label="Primary" className="hidden gap-8 md:flex">

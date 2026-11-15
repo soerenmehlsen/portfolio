@@ -9,15 +9,17 @@ import {
 } from "framer-motion";
 import RevealHeading from "@/app/components/motion/RevealHeading";
 import TextReveal from "@/app/components/motion/TextReveal";
+import { INTRO_START } from "@/app/components/motion/intro";
 import { analyticsEvents } from "@/app/lib/analytics";
 import { contactEmail } from "@/app/lib/data";
 
-// Entrance choreography, in seconds after load. The curtain (Preloader) is
-// still lifting while the first elements start, so the page feels continuous.
-const NAME_DELAY = 1.1;
-const ARROW_DELAY = 1.1;
-const IMAGE_DELAY = 1.2;
-const TEXT_DELAY = 1.3;
+// Entrance choreography, in seconds after load. Nothing moves until the
+// curtain (Preloader) has left the screen; after that the elements follow
+// each other with the same small offsets as the original sequence.
+const NAME_DELAY = INTRO_START;
+const ARROW_DELAY = INTRO_START;
+const IMAGE_DELAY = INTRO_START + 0.1;
+const TEXT_DELAY = INTRO_START + 0.2;
 const POWER3_OUT = [0.215, 0.61, 0.355, 1] as const;
 
 export default function Hero() {
