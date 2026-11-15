@@ -3,12 +3,11 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-// The curtain's bottom edge starts curved and flattens out while it lifts.
+// The curtain's bottom edge is a round arc that keeps its shape while the
+// whole curtain lifts away, so the arc leaves the screen still curved.
 const CURVED = "M0 0 L926 0 L926 1000 Q463 730 0 1000 L0 0";
-const FLAT = "M0 0 L926 0 L926 0 Q463 0 0 0 L0 0";
 
 const LIFT_SECONDS = 2;
-const MORPH_SECONDS = 4;
 // Safety net in case the animation never reports completion.
 const MAX_MS = 3500;
 
@@ -41,12 +40,7 @@ export default function Preloader() {
         viewBox="0 0 926 1000"
         preserveAspectRatio="none"
       >
-        <motion.path
-          className="fill-night"
-          d={CURVED}
-          animate={{ d: [CURVED, FLAT] }}
-          transition={{ duration: MORPH_SECONDS, ease: "easeOut" }}
-        />
+        <path className="fill-night" d={CURVED} />
       </svg>
     </motion.div>
   );
