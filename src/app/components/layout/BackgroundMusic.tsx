@@ -158,7 +158,9 @@ export default function BackgroundMusic() {
             <span key={i} className="ambient-level" />
           ))}
         </span>
-        <span className="hidden md:inline">{label}</span>
+        <span className="ambient-label" aria-hidden="true">
+          {label}
+        </span>
       </button>
       <span className="sr-only" role="status">
         {playback === "error"
