@@ -37,8 +37,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       const hash = anchor.getAttribute("href");
       if (!hash) return;
       event.preventDefault();
-      if (hash === "#") {
+      if (hash === "#" || hash === "#home") {
         lenis.scrollTo(0, { force: true });
+        if (hash === "#home") history.pushState(null, "", hash);
         return;
       }
       const target = document.getElementById(decodeURIComponent(hash.slice(1)));

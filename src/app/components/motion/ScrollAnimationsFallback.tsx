@@ -29,7 +29,6 @@ export default function ScrollAnimationsFallback() {
       stop?.();
       stop = undefined;
       if (!preference.matches) return;
-      const hero = document.querySelector<HTMLElement>(".hero-scroll");
       const paragraphs = [
         ...document.querySelectorAll<HTMLElement>(".scroll-words"),
       ];
@@ -37,11 +36,10 @@ export default function ScrollAnimationsFallback() {
         ...document.querySelectorAll<HTMLElement>(".project-visual"),
       ];
       const affected = [
-        hero,
         ...document.querySelectorAll<HTMLElement>(
           ".scroll-word, .project-scroll-image"
         ),
-      ].filter((element): element is HTMLElement => !!element);
+      ];
       document.documentElement.classList.add("scroll-animation-fallback");
       let frame = 0;
 
@@ -63,11 +61,6 @@ export default function ScrollAnimationsFallback() {
             (y - layoutTop(element) + height) / (element.offsetHeight + height)
           ),
         }));
-        if (hero) {
-          const progress = clamp(y / (height * 0.6));
-          hero.style.opacity = String(1 - progress);
-          hero.style.transform = `translateY(${progress * 42}px) scale(${1 - progress * 0.05})`;
-        }
         words.forEach(({ words, progress }) =>
           words.forEach((word, i) => {
             word.style.opacity = String(

@@ -50,7 +50,7 @@ export default function RootLayout({
           className={`${interTight.variable} ${geistMono.variable} antialiased font-sans`}
         >
           <noscript>
-            <style>{`.reveal-char{transform:none!important}.scroll-word{opacity:1!important}.hero-in{opacity:1!important;transform:none!important}.hero-clip{opacity:1!important;transform:none!important;clip-path:none!important}.preloader{display:none!important}`}</style>
+            <style>{`.reveal-char{transform:none!important}.scroll-word{opacity:1!important}.hero-in{opacity:1!important;transform:none!important}.hero-clip{opacity:1!important;transform:none!important;clip-path:none!important}.preloader{display:none!important}.hero-sequence{position:relative!important;height:auto!important}.hero-stage{position:relative!important;height:auto!important}.hero-scene-meter{display:none!important}`}</style>
           </noscript>
           <Preloader />
           <div className="scroll-progress" aria-hidden="true" />
