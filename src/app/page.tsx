@@ -5,7 +5,6 @@ import Skills from "@/app/components/skills/Skills";
 import About from "@/app/components/about/About";
 import TopBar from "@/app/components/layout/TopBar";
 
-// Later sections are added in subsequent tasks.
 export default function Home() {
   return (
     <main>

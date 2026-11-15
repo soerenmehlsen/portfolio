@@ -22,10 +22,10 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Søren Mehlsen – Full-Stack Developer",
-  description: "My personal portfolio",
+  description: "Portfolio of Søren Mehlsen – full-stack developer and health technology engineer based in Denmark.",
   openGraph: {
     title: "Søren Mehlsen – Full-Stack Developer",
-    description: "My personal portfolio",
+    description: "Portfolio of Søren Mehlsen – full-stack developer and health technology engineer based in Denmark.",
     type: "website",
     url: "https://soerenmehlsen.me",
     siteName: "Søren's Portfolio",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Søren Mehlsen – Full-Stack Developer",
-    description: "My personal portfolio",
+    description: "Portfolio of Søren Mehlsen – full-stack developer and health technology engineer based in Denmark.",
   },
 };
 
@@ -48,6 +48,9 @@ export default function RootLayout({
         <body
           className={`${interTight.variable} ${geistMono.variable} antialiased font-sans`}
         >
+          <noscript>
+            <style>{`.reveal-char{transform:none!important}.scroll-word{opacity:1!important}`}</style>
+          </noscript>
           <Providers>
             {children}
             <GoogleAnalytics gaId="G-CJD54H1QRS" />

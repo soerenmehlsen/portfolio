@@ -52,6 +52,7 @@ export default function Skills() {
               href={certificate.link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`View certificate: ${certificate.title}`}
               className="font-mono text-xs uppercase tracking-wide underline-offset-4 transition-colors duration-200 hover:text-stone hover:underline"
             >
               VIEW ↗

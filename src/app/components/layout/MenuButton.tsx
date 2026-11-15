@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { links, socials } from "@/app/lib/data";
 import { analyticsEvents } from "@/app/lib/analytics";
 import { useLenis } from "@/app/components/motion/SmoothScroll";
@@ -10,6 +10,7 @@ export default function MenuButton() {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const lenis = useLenis();
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.8);
@@ -25,11 +26,11 @@ export default function MenuButton() {
     };
     document.addEventListener("keydown", onKey);
     lenis?.stop();
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const previous = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = previous;
+      document.documentElement.style.overflow = previous;
       lenis?.start();
     };
   }, [open, lenis]);
@@ -43,8 +44,10 @@ export default function MenuButton() {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
-        className={`fixed right-5 top-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-sand text-ink transition-all duration-300 hover:scale-105 ${
-          shown ? "scale-100 opacity-100" : "pointer-events-none scale-75 opacity-0"
+        className={`fixed right-5 top-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-sand/30 bg-ink text-sand transition-all duration-300 hover:scale-105 ${
+          shown
+            ? "scale-100 opacity-100"
+            : "md:pointer-events-none md:invisible md:scale-75 md:opacity-0"
         }`}
       >
         <span className="relative block h-3 w-6">
@@ -67,11 +70,12 @@ export default function MenuButton() {
             role="dialog"
             aria-modal="true"
             aria-label="Menu"
-            className="fixed inset-0 z-40 flex flex-col justify-between bg-night px-6 pb-10 pt-28 text-sand md:px-10"
+            data-lenis-prevent
+            className="fixed inset-0 z-40 flex flex-col justify-between overflow-y-auto bg-night px-6 pb-10 pt-28 text-sand md:px-10"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
-            transition={{ duration: 0.7, ease: [0.77, 0, 0.175, 1] }}
+            transition={{ duration: reduceMotion ? 0 : 0.7, ease: [0.77, 0, 0.175, 1] }}
           >
             <nav aria-label="Menu" className="flex flex-col gap-2">
               {links.map((link) => (

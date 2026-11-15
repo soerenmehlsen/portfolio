@@ -149,7 +149,6 @@ export const experiencesData = [
   },
   {
     title: "Microsoft Certified: Azure Fundamentals",
-    issuer: "Microsoft",
     location: "Microsoft",
     description:
       "Achieved the Microsoft Azure Fundamentals (AZ-900) certification, demonstrating foundational knowledge of cloud services and how Microsoft Azure provides these services.",

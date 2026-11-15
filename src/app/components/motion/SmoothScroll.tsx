@@ -23,17 +23,29 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     });
 
     const onClick = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        event.button !== 0
+      )
+        return;
       const anchor = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
       if (!anchor) return;
       const hash = anchor.getAttribute("href");
       if (!hash) return;
       event.preventDefault();
       if (hash === "#") {
-        lenis.scrollTo(0);
+        lenis.scrollTo(0, { force: true });
         return;
       }
-      const target = document.querySelector<HTMLElement>(hash);
-      if (target) lenis.scrollTo(target);
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (target) {
+        lenis.scrollTo(target, { force: true });
+        history.pushState(null, "", hash);
+      }
     };
     document.addEventListener("click", onClick);
 
