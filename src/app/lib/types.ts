@@ -3,6 +3,11 @@ import React from "react";
 
 export type SectionName = (typeof links)[number]["hash"];
 
+export type Social = {
+  name: "LinkedIn" | "GitHub";
+  href: string;
+};
+
 export type ProjectInfo = {
   title: string;
   description: string;

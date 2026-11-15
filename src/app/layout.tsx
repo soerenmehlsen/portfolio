@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "@/app/containers/providers";
 import Footer from "@/app/components/layout/Footer";
+import MenuButton from "@/app/components/layout/MenuButton";
 import React from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { PostHogProvider } from "@/app/providers";
@@ -50,6 +51,7 @@ export default function RootLayout({
           <Providers>
             {children}
             <GoogleAnalytics gaId="G-CJD54H1QRS" />
+            <MenuButton />
             <Footer />
           </Providers>
         </body>
