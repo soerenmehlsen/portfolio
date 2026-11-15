@@ -94,6 +94,10 @@ export function createHeroScene(
     const preference = matchMedia("(prefers-reduced-motion: reduce)");
     const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
     const stage = section.querySelector<HTMLElement>(".hero-stage")!;
+    const copy = section.querySelectorAll<HTMLElement>(".hero-copy");
+    const nativeScrollEffects = CSS.supports(
+      "(animation-timeline: scroll(root block)) and (animation-range: 0px 100px)"
+    );
     let frame = 0;
     let disposed = false;
     let resizeNeeded = true;
@@ -121,6 +125,15 @@ export function createHeroScene(
       const y = reduced ? 0 : pointerY;
       if (progress !== lastProgress)
         section.style.setProperty("--scene-progress", String(progress));
+      // Reuse the scene's scroll updates where CSS timelines are unavailable.
+      if (!nativeScrollEffects && (resizeNeeded || progress !== lastProgress)) {
+        const fade = pinned ? clamp(progress / 0.22) : 0;
+        copy.forEach((element) => {
+          element.style.opacity = String(1 - fade);
+          element.style.transform = `translateY(${-20 * fade}px)`;
+          element.style.visibility = fade === 1 ? "hidden" : "visible";
+        });
+      }
       if (
         !resizeNeeded &&
         progress === lastProgress &&
@@ -208,6 +221,11 @@ export function createHeroScene(
       preference.removeEventListener("change", resize);
       window.removeEventListener("pointermove", move);
       renderer.domElement.removeEventListener("webglcontextlost", lost);
+      copy.forEach((element) => {
+        element.style.removeProperty("opacity");
+        element.style.removeProperty("transform");
+        element.style.removeProperty("visibility");
+      });
       disposeResources();
     };
     render();

@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="hero-stage px-6 pt-24 pb-6 md:px-10">
         {/* Container-relative type size: the name fills the content width at any
             screen size (cqw = 1% of this wrapper), whatever the scrollbar or padding. */}
-        <div className="@container">
+        <div className="hero-copy @container">
           <RevealHeading
             as="h1"
             text="SØREN MEHLSEN"
@@ -60,7 +60,7 @@ export default function Hero() {
 
         {/* Three columns from lg; below that (phones, tablets) everything stacks. */}
         <div className="hero-body">
-          <div className="hero-intro flex max-w-sm flex-col gap-3 lg:gap-6 2xl:max-w-md">
+          <div className="hero-copy hero-intro flex max-w-sm flex-col gap-3 lg:gap-6 2xl:max-w-md">
             <motion.span
               aria-hidden
               className="hero-in text-2xl leading-none md:text-3xl lg:text-4xl xl:text-5xl"
@@ -124,7 +124,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          <div className="hero-location flex flex-col items-end self-end font-mono text-xs leading-relaxed tracking-wide text-stone uppercase 2xl:text-sm">
+          <div className="hero-copy hero-location flex flex-col items-end self-end font-mono text-xs leading-relaxed tracking-wide text-stone uppercase 2xl:text-sm">
             <TextReveal
               text="Based in"
               delay={TEXT_DELAY}
