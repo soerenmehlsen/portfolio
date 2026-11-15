@@ -578,6 +578,24 @@ html.lenis body {
 
 .certificate-reveal { --skills-lift: 12px; }
 
+.about-content { container-type: inline-size; }
+.about-layout { display: grid; align-items: start; gap: 2.5rem; }
+.about-portrait-entry { width: 100%; max-width: 28rem; margin-inline: auto; }
+.about-portrait-image { filter: saturate(0.72); }
+
+@container (min-width: 52rem) {
+    .about-layout {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: clamp(3rem, 6cqw, 6rem);
+    }
+    .about-portrait-entry { margin-inline: 0; }
+}
+
+@keyframes about-portrait-reveal {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes skills-scroll-reveal {
     from { opacity: 0; transform: translateY(var(--skills-lift, 16px)); }
     to { opacity: 1; transform: translateY(0); }
@@ -585,6 +603,17 @@ html.lenis body {
 
 @media (prefers-reduced-motion: no-preference) {
     @supports ((animation-timeline: view()) and (animation-range: entry) and (animation-timeline: scroll(root block)) and (view-timeline-inset: 40% 15%)) {
+        .about-portrait-entry {
+            view-timeline: --about-portrait block;
+            view-timeline-inset: 0 10%;
+        }
+
+        html:not(.scroll-animation-fallback) .about-portrait-reveal {
+            animation: about-portrait-reveal auto linear both;
+            animation-timeline: --about-portrait;
+            animation-range: entry 0px entry 160px;
+        }
+
         .skills-group {
             view-timeline: --skills-entry block;
             view-timeline-inset: 0 15%;
