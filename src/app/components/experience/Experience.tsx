@@ -12,7 +12,9 @@ export default function Experience() {
   // accordion is enabled only on md+ without reduced motion.
   const [interactive, setInteractive] = useState(false);
   const [active, setActive] = useState(0);
+  const listRef = useRef<HTMLOListElement>(null);
   const rowRefs = useRef<(HTMLLIElement | null)[]>([]);
+  const bodyRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const desktop = window.matchMedia("(min-width: 768px)");
@@ -21,17 +23,22 @@ export default function Experience() {
     let frame = 0;
     const update = () => {
       frame = 0;
+      // Use collapsed-state geometry (list top + cumulative collapsed row
+      // heights) so the choice does not depend on which row is expanded.
       const centre = window.innerHeight / 2;
+      let y = listRef.current?.getBoundingClientRect().top ?? 0;
       let best = 0;
       let bestDistance = Infinity;
       rowRefs.current.forEach((row, i) => {
         if (!row) return;
-        const rect = row.getBoundingClientRect();
-        const distance = Math.abs(rect.top + rect.height / 2 - centre);
+        const extra = bodyRefs.current[i]?.offsetHeight ?? 0;
+        const collapsed = row.offsetHeight - extra;
+        const distance = Math.abs(y + collapsed / 2 - centre);
         if (distance < bestDistance) {
           bestDistance = distance;
           best = i;
         }
+        y += collapsed;
       });
       setActive(best);
     };
@@ -80,7 +87,7 @@ export default function Experience() {
         className="mt-6 text-[clamp(2.5rem,9vw,8rem)] font-medium uppercase leading-[0.95] tracking-tighter"
       />
 
-      <ol className="mt-12 border-t border-bone/20 md:mt-20">
+      <ol ref={listRef} className="mt-12 border-t border-bone/20 md:mt-20">
         {experiencesData.map((item, i) => {
           const open = !interactive || i === active;
           return (
@@ -103,6 +110,9 @@ export default function Experience() {
                 </p>
               </div>
               <motion.div
+                ref={(el) => {
+                  bodyRefs.current[i] = el;
+                }}
                 initial={false}
                 animate={
                   open
