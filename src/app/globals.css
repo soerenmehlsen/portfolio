@@ -23,14 +23,139 @@ body {
     @apply bg-sand text-ink;
 }
 
+.menu-dialog {
+    opacity: 0;
+    transition-property: opacity, display, overlay;
+    transition-duration: 0.12s;
+    transition-timing-function: ease-out;
+    transition-behavior: allow-discrete;
+}
+
 .menu-dialog:modal {
     overscroll-behavior: contain;
 }
 
 .menu-dialog::backdrop {
-    background: var(--color-night);
+    background-color: transparent;
     overflow: hidden;
     overscroll-behavior: contain;
+    transition-property: background-color, display, overlay;
+    transition-duration: 0.12s;
+    transition-timing-function: ease-out;
+    transition-behavior: allow-discrete;
+}
+
+.menu-link,
+.menu-socials {
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+}
+
+.menu-dialog[open]:where(:not([data-closing])) {
+    opacity: 1;
+}
+
+.menu-dialog[open]:where(:not([data-closing]))::backdrop {
+    background-color: rgb(8 8 7 / 0.2);
+}
+
+.menu-dialog[open]:where(:not([data-closing])) .menu-link,
+.menu-dialog[open]:where(:not([data-closing])) .menu-socials {
+    opacity: 1;
+}
+
+.menu-dialog[open]:where(:not([data-closing])) .menu-link:hover {
+    opacity: 0.6;
+    transition-delay: 0s;
+}
+
+.menu-dialog[open]:where(:not([data-closing])) .menu-link:focus-visible {
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+@starting-style {
+    .menu-dialog[open]:where(:not([data-closing])),
+    .menu-dialog[open]:where(:not([data-closing])) .menu-link,
+    .menu-dialog[open]:where(:not([data-closing])) .menu-socials {
+        opacity: 0;
+    }
+
+    .menu-dialog[open]:where(:not([data-closing]))::backdrop {
+        background-color: transparent;
+    }
+}
+
+.menu-close-line-first { transform: rotate(45deg); }
+.menu-close-line-last { transform: rotate(-45deg); }
+
+@keyframes menu-icon-first {
+    from { transform: translateY(-6px) rotate(0); }
+    to { transform: translateY(0) rotate(45deg); }
+}
+
+@keyframes menu-icon-last {
+    from { transform: translateY(6px) rotate(0); }
+    to { transform: translateY(0) rotate(-45deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .menu-dialog {
+        opacity: 1;
+        clip-path: inset(0 0 100% 0);
+        transition-property: clip-path, opacity, display, overlay;
+        transition-duration: 0.55s, 0.18s, 0.55s, 0.55s;
+        transition-timing-function: var(--ease-big), ease-out, linear, linear;
+    }
+
+    .menu-dialog::backdrop {
+        transition-duration: 0.3s, 0.55s, 0.55s;
+    }
+
+    .menu-dialog[open]:where(:not([data-closing])) {
+        clip-path: inset(0);
+    }
+
+    .menu-link {
+        transform: translateY(14px);
+        transition: opacity 0.18s ease-out, transform 0.35s var(--ease-big);
+    }
+
+    .menu-dialog[open]:where(:not([data-closing])) .menu-link {
+        transform: translateY(0);
+        transition-delay: calc(0.08s + var(--menu-index) * 0.03s);
+    }
+
+    .menu-dialog[open]:where(:not([data-closing])) .menu-link:hover,
+    .menu-dialog[open]:where(:not([data-closing])) .menu-link:focus-visible {
+        transition-delay: 0s;
+    }
+
+    .menu-dialog[open]:where(:not([data-closing])) .menu-socials {
+        transition-delay: 0.22s;
+    }
+
+    /* The opener sits behind the native dialog; animate its visible close icon. */
+    .menu-dialog[open] .menu-close-line-first {
+        animation: menu-icon-first 0.35s var(--ease-big) both;
+    }
+
+    .menu-dialog[open] .menu-close-line-last {
+        animation: menu-icon-last 0.35s var(--ease-big) both;
+    }
+}
+
+@starting-style {
+    @media (prefers-reduced-motion: no-preference) {
+        .menu-dialog[open]:where(:not([data-closing])) {
+            opacity: 1;
+            clip-path: inset(0 0 100% 0);
+        }
+
+        .menu-dialog[open]:where(:not([data-closing])) .menu-link {
+            transform: translateY(14px);
+        }
+    }
 }
 
 /* Lenis */
