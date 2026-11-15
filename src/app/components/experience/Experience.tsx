@@ -4,12 +4,18 @@ import { experiencesData } from "@/app/lib/data";
 // Stacked sticky cards (md and up): every card pins below the previous
 // card's header and the next card slides over its body. Pure CSS, so the
 // scroll length follows the card height instead of a scroll-progress runway.
-const HEADER_REM = 5; // fixed header height of a card, md+
+//
+// A sticky card is held back by the bottom of the list, margin box included.
+// Each card therefore gets a bottom margin equal to the pin offset of the
+// cards after it, so every card's limit (top + height + margin) is the same:
+// they all release together and keep their spacing as the stack scrolls away,
+// instead of the later cards sliding over the earlier ones.
+const HEADER_REM = 4; // fixed header height of a card, md+
 const FIRST_STICKY_TOP_REM = 6; // where the first card pins from the top
+// Scroll per experience ≈ card min-height (md:min-h-[17rem]) + its margin.
 
 export default function Experience() {
   const last = experiencesData.length - 1;
-  // Scroll per experience ≈ card min-height (md:min-h-[22rem]) + gap (md:mb-12).
 
   return (
     <section
@@ -28,12 +34,15 @@ export default function Experience() {
         {experiencesData.map((item, i) => (
           <li
             key={i}
-            style={{ top: `${FIRST_STICKY_TOP_REM + i * HEADER_REM}rem` }}
-            className={`border-t border-bone/20 bg-night py-6 md:sticky md:min-h-[22rem] md:py-0 ${
-              i < last ? "md:mb-12" : "border-b"
-            }`}
+            style={
+              {
+                "--pin": `${FIRST_STICKY_TOP_REM + i * HEADER_REM}rem`,
+                "--release": `${(last - i) * HEADER_REM}rem`,
+              } as React.CSSProperties
+            }
+            className="border-t border-bone/20 bg-night py-6 last:border-b md:sticky md:top-[var(--pin)] md:mb-[var(--release)] md:min-h-[17rem] md:py-0"
           >
-            <div className="flex flex-col gap-3 md:h-20 md:flex-row md:items-center md:gap-10">
+            <div className="flex flex-col gap-3 md:h-16 md:flex-row md:items-center md:gap-10">
               <span className="font-mono text-xs uppercase tracking-wide text-olive md:w-24 md:shrink-0">
                 ({String(i + 1).padStart(2, "0")})
               </span>
