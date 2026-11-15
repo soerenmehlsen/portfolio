@@ -34,7 +34,6 @@ export default function ThemeContextProvider({children}: ThemeContextProviderPro
 
         if (localTheme) {
             // Read localStorage after mount to avoid hydration mismatch.
-            // eslint-disable-next-line react-hooks/set-state-in-effect
             setTheme(localTheme);
             if (localTheme === 'dark') {
                 document.documentElement.classList.add('dark');

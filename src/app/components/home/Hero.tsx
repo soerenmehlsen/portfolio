@@ -57,7 +57,7 @@ const Hero = () => {
         <h1 className="mb-10 mt-4 text-2xl sm:text-4xl">
           Hi, I&apos;m
           <AnimatedGradientText>
-            <span className="inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">
+            <span className="inline animate-gradient bg-linear-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">
               Soren
             </span>
           </AnimatedGradientText>
@@ -76,7 +76,7 @@ const Hero = () => {
       >
         <Link
           href="mailto:soeren48@hotmail.com"
-          className="group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 dark:bg-white/10"
+          className="group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-hidden transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 dark:bg-white/10"
           onClick={() =>
             analyticsEvents.trackContactClick({
               type: "email",

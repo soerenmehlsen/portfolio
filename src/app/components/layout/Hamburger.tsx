@@ -37,7 +37,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({links}) => {
                 initial="visible"
                 whileTap="tap"
                 whileHover="hover"
-                className="bg-white w-[3rem] h-[3rem] drop-shadow backdrop-blur-[0.5rem] border border-slate-400 dark:border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950">
+                className="bg-white w-[3rem] h-[3rem] drop-shadow-sm backdrop-blur-[0.5rem] border border-slate-400/40 dark:border-white/40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950">
                 <Hamburger toggled={isOpen} toggle={setOpen} size={20}/>
             </motion.button>
 
@@ -46,7 +46,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({links}) => {
                         variants={menuList}
                         initial="start"
                         animate="visible"
-                        className="w-full bg-white drop-shadow border border-slate-400 dark:border-white border-opacity-60 shadow-2xl rounded-2xl flex flex-col items-center justify-center dark:bg-gray-950 p-1"
+                        className="w-full bg-white drop-shadow-sm border border-slate-400/60 dark:border-white/60 shadow-2xl rounded-2xl flex flex-col items-center justify-center dark:bg-gray-950 p-1"
                     >
                         {links.map((link, index) => (
                             <motion.div
@@ -59,7 +59,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({links}) => {
                                     className={clsx(
                                         "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300 cursor-pointer",
                                         {
-                                            "text-gray-950 bg-slate-200 dark:text-gray-200 dark:bg-gray-700 rounded": activeSection === link.hash,
+                                            "text-gray-950 bg-slate-200 dark:text-gray-200 dark:bg-gray-700 rounded-sm": activeSection === link.hash,
                                             "rounded-t-xl round": index === 0,
                                             "rounded-b-xl round": index === links.length - 1,
                                         }

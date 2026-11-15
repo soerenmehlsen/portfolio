@@ -19,7 +19,7 @@ export default function Header({links}: HeaderProps) {
             <motion.div
                 initial={{opacity: 0, y: -100}}
                 animate={{opacity: 1, y: 0}}
-                className="flex p-1 rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
+                className="flex p-1 rounded-none border border-white/40 bg-white/80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950/75 dark:border-black/40"
             >
                 <ul className="flex flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500">
                     {links.map((link) => (

@@ -41,7 +41,7 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth">
       <PostHogProvider>
         <body
-          className={`${sora.variable} antialiasing relative flex flex-col overscroll-x-auto bg-gray-50 font-Sora text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+          className={`${sora.variable} antialiasing relative flex flex-col overscroll-x-auto bg-gray-50 font-Sora text-gray-950 dark:bg-gray-900 dark:text-gray-50/90`}
         >
           <div className="site-background">
             <div className="site-bg-grid" />

@@ -32,14 +32,14 @@ export default function Switch({
             exit="hidden"
             variants={switchVariants}
             transition={{ duration: 0.3 }}
-            className="hidden md:flex items-center justify-center w-[2rem] h-[2rem] bg-white dark:bg-gray-800 drop-shadow backdrop-blur-[0.5rem] rounded-full absolute bottom-16 right-3 "
+            className="hidden md:flex items-center justify-center w-[2rem] h-[2rem] bg-white dark:bg-gray-800 drop-shadow-sm backdrop-blur-[0.5rem] rounded-full absolute bottom-16 right-3 "
           >
             <p className="text-sm font-semibold">{hiddenButton}</p>
           </motion.button>
         )}
       </AnimatePresence>
       <motion.button
-        className="bg-white dark:bg-gray-800 w-[3rem] h-[3rem] drop-shadow backdrop-blur-[0.5rem] rounded-full flex items-center justify-center"
+        className="bg-white dark:bg-gray-800 w-[3rem] h-[3rem] drop-shadow-sm backdrop-blur-[0.5rem] rounded-full flex items-center justify-center"
         variants={switchVariants}
         initial="visible"
         whileHover="hover"

@@ -25,7 +25,7 @@ export default function CloseButton({
 
     return (
          <button
-      className={`flex ${sizeClasses[size]} items-center justify-center rounded-full bg-gray-50 dark:hover:bg-gray-800 dark:bg-transparent transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-gray-400 border border-gray-300 hover:scale-105 shadow-lg ${className}`}
+      className={`flex ${sizeClasses[size]} items-center justify-center rounded-full bg-gray-50 dark:hover:bg-gray-800 dark:bg-transparent transition-colors hover:bg-white focus:outline-hidden focus:ring-2 focus:ring-gray-400 border border-gray-300 hover:scale-105 shadow-lg ${className}`}
       aria-label={ariaLabel}
       onClick={onClick}
     >

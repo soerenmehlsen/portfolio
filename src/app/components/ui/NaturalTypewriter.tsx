@@ -21,7 +21,6 @@ const NaturalTypewriter = ({ text }: NaturalTypewriterProps) => {
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
     // Reset when `text` changes so the animation restarts from empty.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTypedText("");
 
     const typeNext = () => {
