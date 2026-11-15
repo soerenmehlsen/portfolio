@@ -1,14 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import ResponsiveImage from "@/app/components/ResponsiveImage";
 import assets from "@/app/lib/image-assets.json";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { analyticsEvents } from "@/app/lib/analytics";
 import type { ProjectInfo } from "@/app/lib/types";
 
@@ -31,17 +26,7 @@ export default function ProjectCard({
   const animation = project.imageGifUrl?.endsWith(".gif")
     ? project.imageGifUrl
     : undefined;
-  const cardRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["start end", "end start"],
-  });
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.5],
-    reduced ? [1, 1] : [1.08, 1]
-  );
 
   return (
     <li className="border-b border-bone/20 py-10 md:py-16">
@@ -51,12 +36,11 @@ export default function ProjectCard({
         </span>
         <div className="flex flex-1 flex-col gap-6">
           <motion.div
-            ref={cardRef}
             whileHover={reduced ? undefined : { y: -6 }}
             transition={{ duration: 0.25 }}
-            className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-bone/10"
+            className="project-visual relative aspect-[16/10] overflow-hidden rounded-2xl bg-bone/10"
           >
-            <motion.div className="absolute inset-0" style={{ scale }}>
+            <div className="project-scroll-image absolute inset-0">
               {playing && animation ? (
                 <img
                   src={animation}
@@ -71,7 +55,7 @@ export default function ProjectCard({
                   className="object-cover"
                 />
               )}
-            </motion.div>
+            </div>
             {animation && (
               <button
                 type="button"

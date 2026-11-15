@@ -47,6 +47,57 @@ html.lenis body {
     overflow: hidden;
 }
 
+@keyframes hero-scroll-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(42px) scale(0.95); }
+}
+
+@keyframes project-scroll-zoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+}
+
+@keyframes scroll-word-reveal {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+}
+
+.scroll-word {
+    opacity: 0.2;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports ((animation-timeline: view()) and (animation-range: entry) and (animation-timeline: scroll(root block)) and (view-timeline-inset: 40% 15%)) {
+        html:not(.scroll-animation-fallback) .hero-scroll {
+            animation: hero-scroll-out auto linear both;
+            animation-timeline: scroll(root block);
+            animation-range: 0px 60dvh;
+        }
+
+        .project-visual {
+            view-timeline: --project-image block;
+        }
+
+        html:not(.scroll-animation-fallback) .project-scroll-image {
+            animation: project-scroll-zoom auto linear both;
+            animation-timeline: --project-image;
+            animation-range: cover 0% cover 50%;
+        }
+
+        .scroll-words {
+            view-timeline: --words block;
+            /* Same offsets as start 85% / end 40% in the original effect. */
+            view-timeline-inset: 40% 15%;
+        }
+
+        html:not(.scroll-animation-fallback) .scroll-word {
+            animation: scroll-word-reveal auto linear both;
+            animation-timeline: --words;
+            animation-range: var(--word-start) var(--word-end);
+        }
+    }
+}
+
 /* Reduced motion: motion primitives render their final state, same markup as the server HTML */
 @media (prefers-reduced-motion: reduce) {
     .reveal-char {

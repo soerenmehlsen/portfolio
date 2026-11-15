@@ -1,12 +1,7 @@
 "use client";
 
 import ResponsiveImage from "@/app/components/ResponsiveImage";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import RevealHeading from "@/app/components/motion/RevealHeading";
 import TextReveal from "@/app/components/motion/TextReveal";
 import { INTRO_START } from "@/app/components/motion/intro";
@@ -23,29 +18,12 @@ const TEXT_DELAY = INTRO_START + 0.2;
 const POWER3_OUT = [0.215, 0.61, 0.355, 1] as const;
 
 export default function Hero() {
-  const reduced = useReducedMotion();
-
-  // Content eases out as the dark sections roll over the hero: progress is
-  // 0 at the top of the page and 1 once 60% of a viewport has been scrolled.
-  const { scrollY } = useScroll();
-  const progress = useTransform(scrollY, (y) =>
-    typeof window === "undefined"
-      ? 0
-      : Math.min(1, Math.max(0, y / (window.innerHeight * 0.6))),
-  );
-  const scale = useTransform(progress, [0, 1], reduced ? [1, 1] : [1, 0.95]);
-  const lift = useTransform(progress, [0, 1], reduced ? [0, 0] : [0, 42]);
-  const fade = useTransform(progress, [0, 1], reduced ? [1, 1] : [1, 0]);
-
   return (
     <section
       id="home"
       className="md:sticky md:top-0 flex min-h-svh flex-col overflow-hidden bg-sand px-6 pb-8 pt-24 text-ink md:px-10"
     >
-      <motion.div
-        style={{ scale, y: lift, opacity: fade }}
-        className="flex flex-1 flex-col justify-between"
-      >
+      <div className="hero-scroll flex flex-1 flex-col justify-between">
         {/* Container-relative type size: the name fills the content width at any
             screen size (cqw = 1% of this wrapper), whatever the scrollbar or padding. */}
         <div className="@container">
@@ -133,7 +111,7 @@ export default function Hero() {
             />
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
