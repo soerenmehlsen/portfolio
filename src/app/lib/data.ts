@@ -52,6 +52,13 @@ export const projectsData: ProjectInfo[] = [
     imageGifUrl: "/budget.png",
     github: "https://github.com/soerenmehlsen/budget",
     live: "https://budget-vert-eight.vercel.app",
+    details: {
+      category: "Personal finance",
+      challenge: "Keeping a personal budget in a spreadsheet can make everyday updates feel like work. The goal was to bring income, expenses and the budget overview into one accessible web app.",
+      role: "I developed the project independently, from the interface to the application logic and data integration.",
+      approach: "I built the application with Next.js and TypeScript, using Supabase for authentication and data storage. The interface is designed around a budget overview and dedicated flows for managing income and expenses.",
+      outcome: "A working budgeting app where users can record income and expenses and follow their budget without maintaining a spreadsheet.",
+    },
   },
   {
     title: "ApoStatus",
@@ -62,16 +69,30 @@ export const projectsData: ProjectInfo[] = [
     imageGifUrl: "/Apostatus.png",
     github: "https://github.com/soerenmehlsen/apostatus",
     live: "https://apostatus-a7bsbyggbcbzhvb5.germanywestcentral-01.azurewebsites.net/",
+    details: {
+      category: "Pharmacy operations",
+      challenge: "A pharmacy stocktake involves product lists, physical locations and differences between expected and counted quantities. ApoStatus brings those steps into a structured workflow.",
+      role: "I designed and developed the full-stack application independently, including the interface, stocktake workflow and database integration.",
+      approach: "The workflow separates inventory uploads, stock counting and discrepancy review. Next.js and TypeScript connect the interface to Azure SQL through Prisma, while location-based sessions keep each stocktake organized.",
+      outcome: "A web application where pharmacy staff can upload inventory, count stock across locations and review quantity and value discrepancies in one place.",
+    },
   },
   {
     title: "What's in my food",
     description:
       "Helps users to easily understand the ingredients and the processing of their food with the help of AI.",
-    techStack: ["Next.Js", "TypeScript", "TailwindCSS", "Supabase"],
+    techStack: ["Next.Js", "TypeScript", "TailwindCSS", "Gemini"],
     imageUrl: "/WhatsInMyFood.png",
     imageGifUrl: "/WhatsInMyFood.png",
     github: "https://github.com/soerenmehlsen/whatsInMyFood",
     live: "https://whatsinmyfood.info/",
+    details: {
+      category: "Food & AI",
+      challenge: "Ingredient labels can be difficult to interpret. The goal was to make unfamiliar ingredients and processing levels easier to understand through a simple scanning flow.",
+      role: "I developed the application independently, connecting the user interface, image input and AI-powered analysis.",
+      approach: "I used Next.js and TypeScript for the application and Gemini for ingredient analysis. Users can photograph a label or scan a barcode, with product information retrieved from Open Food Facts.",
+      outcome: "A mobile-friendly application that turns ingredient lists into readable explanations and processing classifications, with search and filtering to explore the results.",
+    },
   },
   {
     title: "DeepDR",
@@ -82,6 +103,13 @@ export const projectsData: ProjectInfo[] = [
     imageGifUrl: "/DeepDR.gif",
     github: "https://github.com/soerenmehlsen/DeepDR",
     live: "https://github.com/soerenmehlsen/DeepDR",
+    details: {
+      category: "Health technology · Academic project",
+      challenge: "Retinal images contain small visual features associated with diabetic retinopathy. This academic project explored how deep learning could segment those features and present the results in an accessible interface.",
+      role: "I developed the MATLAB application independently as a final exam project, combining image analysis with an interactive graphical interface.",
+      approach: "The application brings deep-learning segmentation into a MATLAB GUI. It displays detected lesion regions alongside quantitative results and includes tools for saving outputs and evaluating segmentation overlap.",
+      outcome: "An academic prototype for inspecting retinal-image segmentation results. It demonstrates a connection between health technology, machine learning and interface development.",
+    },
   },
 ];
 

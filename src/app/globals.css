@@ -547,6 +547,39 @@ html.lenis body {
 
 .project-counter-rail { display: none; }
 
+.project-dialog {
+    width: min(60rem, calc(100% - 1rem));
+    max-width: 60rem;
+    max-height: calc(100dvh - 1rem);
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 1rem;
+    background: var(--color-sand);
+    color: var(--color-ink);
+    overflow: auto;
+}
+.project-dialog:modal { overscroll-behavior: contain; }
+.project-dialog::backdrop {
+    background: rgb(8 8 7 / 0.65);
+    overflow: hidden;
+    overscroll-behavior: contain;
+}
+@media (min-width: 768px) {
+    .project-dialog {
+        width: min(60rem, calc(100% - 4rem));
+        max-height: min(90dvh, 64rem);
+        border-radius: 1.5rem;
+    }
+}
+@keyframes project-details-enter {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .project-dialog[open] { animation: project-details-enter 240ms ease-out; }
+}
+
 @media (min-width: 768px) {
     .project-item { border-bottom: 0; }
     .project-item > .scroll-divider-line {

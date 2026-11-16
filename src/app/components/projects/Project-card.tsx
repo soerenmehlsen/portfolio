@@ -6,6 +6,7 @@ import assets from "@/app/lib/image-assets.json";
 import { motion, useReducedMotion } from "framer-motion";
 import { analyticsEvents } from "@/app/lib/analytics";
 import type { ProjectInfo } from "@/app/lib/types";
+import ProjectDetails from "./ProjectDetails";
 
 const linkClass =
   "font-mono text-xs uppercase tracking-wide text-bone underline-offset-4 transition-colors duration-200 hover:text-sand hover:underline";
@@ -84,7 +85,8 @@ export default function ProjectCard({
               </li>
             ))}
           </ul>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <ProjectDetails project={project} index={index} src={src} />
             {live !== github && (
               <a
                 href={live}

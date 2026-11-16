@@ -11,6 +11,13 @@ export type ProjectInfo = {
   imageGifUrl?: string;
   github: string;
   live: string;
+  details: {
+    category: string;
+    challenge: string;
+    role: string;
+    approach: string;
+    outcome: string;
+  };
 };
 
 export type Link = {

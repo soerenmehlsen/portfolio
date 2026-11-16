@@ -31,37 +31,29 @@ export default function About() {
           <div className="about-copy">
             <div className="border-b border-ink/15 pb-8">
               <h3 className="font-mono text-xs tracking-wide text-stone uppercase">
-                MY PASSION
+                FROM HEALTH TECH TO SOFTWARE
               </h3>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed">
-                After graduating with a bachelor&apos;s degree in{" "}
+                I&apos;m a full-stack developer with a bachelor&apos;s degree in{" "}
                 <span className="font-medium">
                   Health Technology Engineering
                 </span>
-                , I have focused on applying my skills to software development.
-                My interest is working with{" "}
-                <span className="font-medium">front-end development</span> in
-                React and WPF, as well as{" "}
-                <span className="font-medium">back-end systems</span> using .NET
-                Core and Web APIs. My favorite part of developing software is
-                finding solutions to complex challenges. The thrill I get of
-                solving a problem is what drives me. My core stack includes{" "}
-                <span className="font-medium">
-                  C# in .NET, React.JS, MongoDB, and MSSQL
-                </span>
-                , and I am continually trying to learn new skills.
+                . I&apos;ve taken that interest in practical problem-solving
+                into software, building web applications and internal business
+                systems. I work across the stack with .NET and React, with a
+                focus on understanding the problem and making the solution easy
+                to use.
               </p>
             </div>
             <div className="border-b border-ink/15 py-8">
               <h3 className="font-mono text-xs tracking-wide text-stone uppercase">
-                PERSONAL PROFILE
+                OUTSIDE OF CODE
               </h3>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed">
-                <span className="font-medium">When I&apos;m not coding</span>, I
-                enjoy staying active by playing padel, working out, and spending
-                time with family and friends. I also have a strong interest for
-                technology and love keeping up with the latest advancements in
-                the field.
+                Away from the screen, you&apos;ll usually find me playing padel,
+                working out or spending time with family and friends. I&apos;m
+                curious about technology and enjoy exploring new tools and
+                ideas.
               </p>
             </div>
           </div>
