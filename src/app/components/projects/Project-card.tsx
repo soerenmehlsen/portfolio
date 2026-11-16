@@ -29,16 +29,16 @@ export default function ProjectCard({
   const reduced = useReducedMotion();
 
   return (
-    <li className="scroll-divider-bottom relative border-b border-bone/20 py-10 md:py-16">
+    <li className="project-item scroll-divider-bottom relative border-b border-bone/20 py-10 md:py-12">
       <article className="project-entry flex flex-col gap-6 md:flex-row md:gap-10">
-        <span className="project-number font-mono text-5xl leading-none tracking-tighter text-olive md:w-48 md:shrink-0 md:text-8xl">
+        <span className="project-number font-mono text-5xl leading-none tracking-tighter text-olive md:text-8xl">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <div className="flex flex-1 flex-col gap-6">
+        <div className="flex min-w-0 flex-1 flex-col gap-6 md:gap-5">
           <motion.div
             whileHover={reduced ? undefined : { y: -6 }}
             transition={{ duration: 0.25 }}
-            className="project-visual relative aspect-[16/10] overflow-hidden rounded-2xl bg-bone/10"
+            className="project-visual relative aspect-[16/10] overflow-hidden rounded-2xl bg-bone/10 md:max-h-[56svh]"
           >
             <div className="project-scroll-image absolute inset-0">
               {playing && animation ? (
@@ -51,7 +51,7 @@ export default function ProjectCard({
                 <ResponsiveImage
                   src={src}
                   alt={title}
-                  sizes="(min-width: 768px) calc(100vw - 19.5rem), calc(100vw - 3rem)"
+                  sizes="(min-width: 768px) calc((100vw - 7.5rem) * 7 / 12), calc(100vw - 3rem)"
                   className="object-cover"
                 />
               )}

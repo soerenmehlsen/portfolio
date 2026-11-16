@@ -537,12 +537,48 @@ html.lenis body {
     bottom: auto;
 }
 
-.project-number {
-    --number-drift: 4px;
-}
+.project-counter-rail { display: none; }
 
 @media (min-width: 768px) {
-    .project-number { --number-drift: 8px; }
+    .project-item { border-bottom: 0; }
+    .project-item > .scroll-divider-line {
+        left: calc((100% - 2.5rem) * 5 / 12 + 2.5rem);
+    }
+    .project-entry {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+    .project-number { position: sticky; top: 3rem; align-self: start; }
+    .project-counter-ready .project-counter-rail {
+        display: block;
+        position: absolute;
+        inset: 3rem auto 3rem 0;
+        width: calc((100% - 2.5rem) * 5 / 12);
+        pointer-events: none;
+    }
+    .project-counter {
+        position: sticky;
+        top: 3rem;
+        display: flex;
+        height: 0.8em;
+        overflow: clip;
+        font-size: 22vw;
+        font-weight: 400;
+        line-height: 0.8;
+        font-variant-numeric: lining-nums tabular-nums;
+    }
+    .project-counter-window { width: 0.65em; }
+    .project-counter-track {
+        display: flex;
+        flex-direction: column;
+        transition: transform 1s ease-in-out;
+    }
+    .project-counter-track > span { height: 0.8em; flex-shrink: 0; }
+    .project-counter-ready .project-number { visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-counter-track { transition: none; }
 }
 
 @keyframes scroll-line-draw {
@@ -550,10 +586,6 @@ html.lenis body {
     to { transform: scaleX(1); }
 }
 
-@keyframes project-number-drift {
-    from { transform: translateY(calc(-1 * var(--number-drift))); }
-    to { transform: translateY(var(--number-drift)); }
-}
 
 @keyframes contact-scroll-reveal {
     from { transform: translateY(16px); }
@@ -661,14 +693,6 @@ html.lenis body {
             animation: scroll-line-draw auto linear both;
             animation-timeline: view(block);
             animation-range: entry 0% entry 25dvh;
-        }
-
-        .project-entry { view-timeline: --project-entry block; }
-
-        html:not(.scroll-animation-fallback) .project-number {
-            animation: project-number-drift auto linear both;
-            animation-timeline: --project-entry;
-            animation-range: cover 0% cover 100%;
         }
 
         .contact-section { view-timeline: --contact-entry block; }
