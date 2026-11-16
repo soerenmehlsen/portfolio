@@ -6,7 +6,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="skills-section relative z-10 -mt-6 scroll-mt-12 rounded-t-3xl bg-sand px-6 pt-20 pb-24 text-ink md:px-10 md:pt-32 md:pb-40"
+      className="skills-section relative z-10 scroll-mt-12 rounded-t-3xl bg-sand px-6 pt-20 pb-24 text-ink md:px-10 md:pt-32 md:pb-40"
     >
       <p className="font-mono text-xs tracking-wide text-stone uppercase">
         (STACK)

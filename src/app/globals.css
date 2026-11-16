@@ -436,7 +436,15 @@ html.lenis body {
     .hero-location { padding-bottom: 2.5rem; }
 }
 
-@media (prefers-reduced-motion: no-preference) and (min-height: 721px) and (max-aspect-ratio: 2/1) {
+@media (max-width: 767px) and (max-height: 720px) {
+    .hero-stage { padding-top: 5rem; }
+    .hero-art { height: 28svh; }
+    .hero-body { gap: 0.75rem; margin-top: 0.75rem; }
+    .hero-intro { gap: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-height: 721px) and (max-aspect-ratio: 2/1),
+       (prefers-reduced-motion: no-preference) and (max-width: 767px) and (min-height: 640px) and (orientation: portrait) {
     .hero-sequence:not([data-scene-state="fallback"]) {
         position: sticky;
         top: calc(-1 * var(--hero-travel));
@@ -596,6 +604,11 @@ html.lenis body {
     --divider-color: color-mix(in oklab, var(--color-ink) 15%, transparent);
 }
 
+.projects-section {
+    border-end-start-radius: 1.5rem;
+    border-end-end-radius: 1.5rem;
+}
+
 @keyframes projects-card-lift {
     from { transform: translateY(0) scale(1); }
     to { transform: translateY(var(--projects-lift)) scale(var(--projects-scale)); }
@@ -615,8 +628,6 @@ html.lenis body {
         }
         .projects-section {
             transform-origin: center bottom;
-            border-end-start-radius: 1.5rem;
-            border-end-end-radius: 1.5rem;
             box-shadow: 0 24px 40px -28px rgb(0 0 0 / 0.4);
             animation: projects-card-lift auto linear both;
             animation-timeline: --skills-approach;
@@ -670,6 +681,18 @@ html.lenis body {
 
 @media (prefers-reduced-motion: no-preference) {
     @supports ((animation-timeline: view()) and (animation-range: entry) and (animation-timeline: scroll(root block)) and (view-timeline-inset: 40% 15%)) {
+        @media (max-width: 767px) {
+            .experience-entry {
+                view-timeline: --experience-entry block;
+                view-timeline-inset: 0 10%;
+            }
+            html:not(.scroll-animation-fallback) .experience-reveal {
+                --skills-lift: 12px;
+                animation: skills-scroll-reveal auto linear both;
+                animation-timeline: --experience-entry;
+                animation-range: entry 0px entry 120px;
+            }
+        }
         .about-portrait-entry {
             view-timeline: --about-portrait block;
             view-timeline-inset: 0 10%;

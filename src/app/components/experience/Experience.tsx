@@ -20,14 +20,14 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative z-10 scroll-mt-12 rounded-t-3xl bg-night px-6 pb-24 pt-20 text-bone md:px-10 md:pb-40 md:pt-32"
+      className="relative z-10 scroll-mt-12 rounded-t-3xl bg-night px-6 pt-20 pb-24 text-bone md:px-10 md:pt-32 md:pb-40"
     >
-      <p className="font-mono text-xs uppercase tracking-wide text-olive">
+      <p className="font-mono text-xs tracking-wide text-olive uppercase">
         (CAREER)
       </p>
       <RevealHeading
         text="EXPERIENCE /"
-        className="mt-6 text-[clamp(2.5rem,min(9vw,11vh),8rem)] font-medium uppercase leading-[0.95] tracking-tighter"
+        className="mt-6 text-[clamp(2.5rem,min(9vw,11vh),8rem)] leading-[0.95] font-medium tracking-tighter uppercase"
       />
 
       <ol className="mt-12 md:mt-20">
@@ -40,23 +40,28 @@ export default function Experience() {
                 "--release": `${(last - i) * HEADER_REM}rem`,
               } as React.CSSProperties
             }
-            className="scroll-divider-top relative border-t border-bone/20 bg-night py-6 last:border-b md:sticky md:top-[var(--pin)] md:mb-[var(--release)] md:min-h-[17rem] md:py-0"
+            className="experience-entry scroll-divider-top relative border-t border-bone/20 bg-night py-6 last:border-b md:sticky md:top-[var(--pin)] md:mb-[var(--release)] md:min-h-[17rem] md:py-0"
           >
-            <span aria-hidden="true" className="scroll-divider-line scroll-divider-line-top" />
-            <div className="flex flex-col gap-3 md:h-16 md:flex-row md:items-center md:gap-10">
-              <span className="font-mono text-xs uppercase tracking-wide text-olive md:w-24 md:shrink-0">
-                ({String(i + 1).padStart(2, "0")})
-              </span>
-              <h3 className="text-2xl font-medium tracking-tight md:flex-1 md:text-4xl">
-                {item.title}
-              </h3>
-              <p className="font-mono text-xs uppercase tracking-wide text-olive md:text-right">
-                {item.location} · {item.date}
+            <span
+              aria-hidden="true"
+              className="scroll-divider-line scroll-divider-line-top"
+            />
+            <div className="experience-reveal">
+              <div className="flex flex-col gap-3 md:h-16 md:flex-row md:items-center md:gap-10">
+                <span className="font-mono text-xs tracking-wide text-olive uppercase md:w-24 md:shrink-0">
+                  ({String(i + 1).padStart(2, "0")})
+                </span>
+                <h3 className="text-2xl font-medium tracking-tight md:flex-1 md:text-4xl">
+                  {item.title}
+                </h3>
+                <p className="font-mono text-xs tracking-wide text-olive uppercase md:text-right">
+                  {item.location} · {item.date}
+                </p>
+              </div>
+              <p className="max-w-3xl pt-6 text-base leading-relaxed text-bone md:ml-[8.5rem] md:pt-4 md:text-lg">
+                {item.description}
               </p>
             </div>
-            <p className="max-w-3xl pt-6 text-base leading-relaxed text-bone md:ml-[8.5rem] md:pt-4 md:text-lg">
-              {item.description}
-            </p>
           </li>
         ))}
       </ol>
