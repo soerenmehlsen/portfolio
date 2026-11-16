@@ -69,7 +69,20 @@ export default function Hero() {
               animate={{ opacity: started ? 1 : 0 }}
               transition={{ duration: 2, delay: ARROW_DELAY, ease: POWER3_OUT }}
             >
-              ↘
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="square"
+                strokeLinejoin="miter"
+              >
+                <path d="M5 5 19 19M5 19h14V5" />
+              </svg>
             </motion.span>
             <TextReveal
               text="Health Tech engineer, who likes to build things on the web."
