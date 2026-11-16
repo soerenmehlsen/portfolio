@@ -8,8 +8,10 @@ import { useIntroSequence } from "./IntroSequence";
 // One black shape with a round bottom edge. The edge keeps its curve the whole
 // way and the shape is lifted further than its own height, so the arc leaves
 // the screen at full speed instead of slowing down or lingering at the top.
-// Depth of the arc = half the gap between the corners (1000) and the control point (870).
-const SHAPE = "M0 0 L926 0 L926 1000 Q463 870 0 1000 L0 0";
+// Arc depth is half the gap between the corners (1000) and the control point.
+// A shallower mobile arc avoids a steep curve across the narrow viewport.
+const DESKTOP_SHAPE = "M0 0 L926 0 L926 1000 Q463 870 0 1000 L0 0";
+const MOBILE_SHAPE = "M0 0 L926 0 L926 1000 Q463 950 0 1000 L0 0";
 const SHAPE_HEIGHT_VH = 112; // just taller than the screen: the arc comes into view right away
 const TRAVEL_VH = 122; // more than SHAPE_HEIGHT_VH: the arc is fully gone before the end
 // Starts gently, then runs at a steady speed right to the end (the curve ends
@@ -113,7 +115,8 @@ export default function Preloader() {
         viewBox="0 0 926 1000"
         preserveAspectRatio="none"
       >
-        <path className="fill-night" d={SHAPE} />
+        <path className="fill-night md:hidden" d={MOBILE_SHAPE} />
+        <path className="hidden fill-night md:block" d={DESKTOP_SHAPE} />
       </svg>
       <div className="preloader-copy">
         <progress
