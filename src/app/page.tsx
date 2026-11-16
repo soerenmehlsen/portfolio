@@ -11,8 +11,10 @@ export default function Home() {
       <TopBar />
       <Hero />
       <Experience />
-      <Projects />
-      <Skills />
+      <div className="projects-skills-transition">
+        <Projects />
+        <Skills />
+      </div>
       <About />
     </main>
   );

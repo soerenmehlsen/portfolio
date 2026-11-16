@@ -596,6 +596,41 @@ html.lenis body {
     --divider-color: color-mix(in oklab, var(--color-ink) 15%, transparent);
 }
 
+@keyframes projects-card-lift {
+    from { transform: translateY(0) scale(1); }
+    to { transform: translateY(var(--projects-lift)) scale(var(--projects-scale)); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports ((animation-timeline: view()) and (animation-range: entry) and (timeline-scope: --skills-approach)) {
+        .projects-skills-transition {
+            timeline-scope: --skills-approach;
+            --projects-lift: -2.5rem;
+            --projects-scale: 0.975;
+        }
+        .projects-skills-transition > .skills-section {
+            view-timeline: --skills-approach block;
+            border-start-start-radius: 0;
+            border-start-end-radius: 0;
+        }
+        .projects-section {
+            transform-origin: center bottom;
+            border-end-start-radius: 1.5rem;
+            border-end-end-radius: 1.5rem;
+            box-shadow: 0 24px 40px -28px rgb(0 0 0 / 0.4);
+            animation: projects-card-lift auto linear both;
+            animation-timeline: --skills-approach;
+            animation-range: entry 0% entry 75%;
+        }
+        @media (min-width: 768px) {
+            .projects-skills-transition {
+                --projects-lift: -5rem;
+                --projects-scale: 0.96;
+            }
+        }
+    }
+}
+
 .skills-group {
     --skills-stagger: 0px;
 }

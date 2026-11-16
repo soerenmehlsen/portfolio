@@ -8,7 +8,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative z-10 scroll-mt-12 bg-night px-6 pt-20 pb-24 text-bone md:px-10 md:pt-32 md:pb-40"
+      className="projects-section relative z-10 scroll-mt-12 bg-night px-6 pt-20 pb-24 text-bone md:px-10 md:pt-32 md:pb-40"
     >
       <p className="font-mono text-xs tracking-wide text-olive uppercase">
         (PROJECTS)
